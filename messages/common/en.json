@@ -1,0 +1,52 @@
+{
+  "common": {
+   "header":{
+    "About Us": "About Us",
+    "Search medical equipment, services, and products": "Search medical equipment, services, and products",
+    "Rent": "Rent",
+    "Services": "Services",
+    "Products": "Products",
+    "Medical Equipment": "Medical Equipment",
+    "Contact Us": "Contact Us"
+   },
+   "footer": {
+  "QuickLinks": "Quick Links",
+  "Home": "Home",
+  "OurStory": "Our Story",
+  "Products": "Products",
+  "Services": "Services",
+  "ContactUs": "Contact Us",
+  "Contacts": "Contacts",
+  "Phone1": "+971522044556",
+  "Phone2": "+97145728346",
+  "Email": "inquiry@mymedlinks.com",
+  "Address": "Showroom: Al Qusais Industrial first, 242-107, Dubai",
+  "FollowUs": "Follow Us",
+  "Facebook": "Facebook",
+  "Instagram": "Instagram",
+  "WhatsApp": "WhatsApp",
+  "Twitter": "Twitter",
+  "Payment": "Payment",
+  "Secure": "Secure payments powered by industry-leading encryption",
+  "Rights": "© 2025 All rights reserved.",
+  "OurPolicy": "Our Policy",
+  "ReturnPolicy": "Return Policy",
+  "Terms": "Terms & Conditions"
+  },
+  "home":{
+    "Explore All Services": "Explore All Services",
+    "Medical Services Offered At Home": "Medical Services Offered At Home",
+    "We provide a wide range of medical services at home, ensuring you receive the care you need in the comfort of your own space": "We provide a wide range of medical services at home, ensuring you receive the care you need in the comfort of your own space",
+    "Professional medical service with trained attendants providing quality care and support": "Professional medical service with trained attendants providing quality care and support",
+    "24/7 Available": "24/7 Available",
+    "Certified": "Certified",
+    "One-time": "One-time",
+    "Rental": "Rental",
+    "View More Services": "View More Services",
+    "One-time payment": "One-time payment",
+    "Per day rental": "Per day rental",
+    "Book Now": "Book Now",
+    "Rent Now": "Rent Now"
+  }
+  }
+}

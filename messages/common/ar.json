@@ -1,0 +1,52 @@
+{
+  "common": {
+   "header":{
+    "About Us": "معلومات عنا",
+    "Search medical equipment, services, and products": "ابحث عن المعدات الطبية والخدمات والمنتجات",
+    "Rent": "تأجير",
+    "Services": "خدمات",
+    "Products": "منتجات",
+    "Medical Equipment": "معدات طبية",
+    "Contact Us": "اتصل بنا"
+   },
+   "footer": {
+  "QuickLinks": "روابط سريعة",
+  "Home": "الرئيسية",
+  "OurStory": "قصتنا",
+  "Products": "المنتجات",
+  "Services": "الخدمات",
+  "ContactUs": "تواصل معنا",
+  "Contacts": "جهات الاتصال",
+  "Phone1": "+971522044556",
+  "Phone2": "+97145728346",
+  "Email": "inquiry@mymedlinks.com",
+  "Address": "المعرض: القوز الصناعية الأولى، 242-107، دبي",
+  "FollowUs": "تابعنا",
+  "Facebook": "فيسبوك",
+  "Instagram": "انستجرام",
+  "WhatsApp": "واتساب",
+  "Twitter": "تويتر",
+  "Payment": "الدفع",
+  "Secure": "مدفوعات آمنة مدعومة بأحدث تقنيات التشفير",
+  "Rights": "© 2025 جميع الحقوق محفوظة.",
+  "OurPolicy": "سياستنا",
+  "ReturnPolicy": "سياسة الاسترجاع",
+  "Terms": "الشروط والأحكام"
+  },
+  "home":{
+    "Explore All Services": "استكشاف جميع الخدمات",
+    "Medical Services Offered At Home": "الخدمات الطبية المقدمة في المنزل",
+    "We provide a wide range of medical services at home, ensuring you receive the care you need in the comfort of your own space": "نقدم مجموعة واسعة من الخدمات الطبية في المنزل، لضمان حصولك على الرعاية التي تحتاجها في راحة منزلك",
+    "Professional medical service with trained attendants providing quality care and support": "خدمة طبية احترافية مع مرافقة مدربة تقدم رعاية ودعم عالي الجودة",
+    "24/7 Available": "متاح على مدار الساعة",
+    "Certified": "معتمد",
+    "One-time": "مرة واحدة",
+    "Rental": "إيجار",
+    "View More Services": "عرض المزيد من الخدمات",
+    "One-time payment": "دفع لمرة واحدة",
+    "Per day rental": "إيجار يومي",
+    "Book Now": "احجز الآن",
+    "Rent Now": "استأجر الآن"
+  }
+}
+}
