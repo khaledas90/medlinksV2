@@ -17,7 +17,7 @@ interface MobileNavigationClientProps {
   navigationItems?: NavigationItem[] 
 }
 export default async  function MenuCategoryHeader({ navigationItems }: MobileNavigationClientProps) {
-     const t = await getTranslations('common.home');
+     const t = await getTranslations('common.header');
       const locale = await getLocale();
   return (
     <div className='MenuCategoryHeader flex items-center space-x-4 lg:space-x-6'>
