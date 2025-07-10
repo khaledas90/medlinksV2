@@ -2,9 +2,8 @@
 import { Category } from '@/actions/categories'
 import { Badge } from '@/components/ui/badge'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
-import { ChevronDown } from 'lucide-react'
-import { useTranslations } from 'next-intl'
-import { getTranslations } from 'next-intl/server'
+import { ChevronDown } from 'lucide-react' 
+import { getLocale, getTranslations } from 'next-intl/server'
 import Link from 'next/link' 
 import React from 'react'
 
@@ -15,11 +14,11 @@ export interface NavigationItem {
 }
 
 interface MobileNavigationClientProps {
-  navigationItems?: NavigationItem[]
-  locale?: string | undefined
+  navigationItems?: NavigationItem[] 
 }
-export default  function MenuCategoryHeader({ navigationItems ,  locale }: MobileNavigationClientProps) {
-   const t = useTranslations('common.header');
+export default async  function MenuCategoryHeader({ navigationItems }: MobileNavigationClientProps) {
+     const t = await getTranslations('common.home');
+      const locale = await getLocale();
   return (
     <div className='MenuCategoryHeader flex items-center space-x-4 lg:space-x-6'>
               {navigationItems?.map((item) => (

@@ -1,15 +1,14 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Search, Phone, ChevronDown, Menu } from "lucide-react"
+import { Search, Phone } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import logo from "@/assets/logo.svg"
-import LanguageSwitcher from "./LanguageSwitcher"
-import MenuCategoryHeader from "./MenuCategoryHeader"  
+import LanguageSwitcher from "./LanguageSwitcher" 
 import MobileNavigationClient from "./MobileNavigation"
 import { getCategoriesTypes } from "@/actions/categories"
-import { getTranslations } from "next-intl/server"
-import MenuClient from "./MenuClient"
+import { getTranslations } from "next-intl/server" 
+import MenuCategoryHeader from "./MenuCategoryHeader"
 
 export default async function Header() {
       const rent = await getCategoriesTypes({type: 1})
@@ -52,9 +51,8 @@ export default async function Header() {
             </div>
           </div>
           
-          <nav className="hidden lg:flex items-center space-x-6">
-            <MenuClient  navigationItems={navigationItems}  />
-            {/* <MenuCategoryHeader   navigationItems={navigationItems} /> */}
+          <nav className="hidden lg:flex items-center space-x-6"> 
+            <MenuCategoryHeader   navigationItems={navigationItems} />
             <Link
               href="/about"
               className="text-gray-700 hover:text-[#3ABFF8] transition-colors duration-200 font-medium"
