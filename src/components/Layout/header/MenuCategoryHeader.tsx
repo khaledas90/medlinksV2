@@ -31,10 +31,10 @@ export default  function MenuCategoryHeader({ navigationItems ,  locale }: Mobil
                 <DropdownMenuContent className="w-64">
                   {item.items.map((subItem) => (
                     <DropdownMenuItem key={`${subItem.type}-${subItem.name}`} asChild dir='auto'>
-                      <Link href={`category/${subItem.type} `} className={`${locale == 'en' ? 'text-left' : 'text-right'}  w-full`}>
+                      <Link href={`category/${subItem.type} `} className={`${locale == 'en' ? 'text-left' : 'text-right'} justify-between  w-full`}>
                         {locale == 'en' ? subItem.name : subItem.nameAr}
                          {subItem.type === 1 &&(
-                        <Badge className="ml-2 text-[#3ABFF8]" variant="outline">
+                        <Badge className="ml-2 text-[#3ABFF8] " variant="outline">
                          {t("Rent")}
                         </Badge>
                       )}

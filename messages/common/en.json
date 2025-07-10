@@ -46,7 +46,17 @@
     "One-time payment": "One-time payment",
     "Per day rental": "Per day rental",
     "Book Now": "Book Now",
-    "Rent Now": "Rent Now"
+    "Rent Now": "Rent Now",
+    "Medical Equipment Categories": "Medical Equipment Categories",
+    "Explore our wide range of medical equipment available for sale and rent": "Explore our wide range of medical equipment available for sale and rent",
+    "Categories for Sale": "Categories for Sale",
+    "Categories for Rent": "Categories for Rent",
+    "Rate for": "Rate for",
+    "Buy Now": "Buy Now", 
+    "Contact for Price": "Contact for Price",
+    "product": "product",
+    "rent": "rent",
+    "service": "service"
   }
   }
 }

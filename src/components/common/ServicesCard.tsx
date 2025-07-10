@@ -31,7 +31,6 @@ export default function ServicesCard({
   const displayPrice = service.price > 0 ? service.price : service.rent
   const originalPrice = hasDiscount ? displayPrice / (1 - service.discount / 100) : null
   if (!service) return null
- 
   return (
     <div
       className={clsx("animate-fade-in-up", "transition-all duration-500 hover:-translate-y-2")}
@@ -58,9 +57,11 @@ export default function ServicesCard({
             </Badge>
           )}
  
-          <Badge variant="secondary" className="absolute top-3 left-3 bg-white/90 text-gray-700 font-medium">
-            {service.price > 0 ? t("One-time") : t("Rental")}
-          </Badge>
+          {service.price !== 0 && (
+            <Badge variant="secondary" className="absolute top-3 left-3 bg-white/90 text-gray-700 font-medium">
+              {t("Book Now")}
+            </Badge>
+          )}
         </div>
 
         <CardContent className="p-6 space-y-4"> 
@@ -106,8 +107,8 @@ export default function ServicesCard({
               </div>
             </div>
  
-            <Button className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-3 rounded-lg transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-xl">
-              {service.price > 0 ? t("Book Now") : t("Rent Now")}
+            <Button className="w-full bg-gradient-to-r from-[#35ace0] to-[#35ace0] hover:from-[#35ace0] hover:to-[#35ace0] text-white font-semibold py-3 rounded-lg transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-xl">
+              {t("Book Now")}
             </Button>
           </div>
         </CardContent>

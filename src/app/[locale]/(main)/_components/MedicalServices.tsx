@@ -6,7 +6,7 @@ import { getTranslations } from "next-intl/server"
 
 export default async function MedicalServices( ) {
   const data = await getCategoriesTypes({type: 'services'})
-    const t = await getTranslations('common.home');
+  const t = await getTranslations('common.home');
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">

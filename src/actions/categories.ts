@@ -3,13 +3,13 @@ import { fetcher } from '@/utils/fetcher';
 
 
 export interface Category {
-  
 id: number;
 name: string;
 nameAr: string;
 description: string;
 descriptionAr: string;
 imagePath: string;
+imageUrl: string;
 categoryId:number;
 categoryTypeId:number
 discount:number 

@@ -10,6 +10,7 @@ import { NextIntlClientProvider } from "next-intl";
 
 import Header from "@/components/Layout/header/header";
 import Footer from "@/components/Layout/footer/footer";
+import { AnimatedWrapper } from "@/components/AnimatedWrapper";
  
 const inter = Inter({
   variable: "--font-inter",
@@ -67,7 +68,8 @@ export default async function RootLayout({
         suppressHydrationWarning
       >
         <body className="antialiased font-inter">
-          <Providers>
+          <AnimatedWrapper>
+            <Providers>
             <ThemeProvider
               attribute="class"
               defaultTheme="system"
@@ -80,6 +82,8 @@ export default async function RootLayout({
               <Footer />
             </ThemeProvider>
           </Providers>
+          </AnimatedWrapper>
+         
         </body>
       </html>
     </NextIntlClientProvider>

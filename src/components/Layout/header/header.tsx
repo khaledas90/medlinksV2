@@ -13,7 +13,7 @@ import MenuClient from "./MenuClient"
 
 export default async function Header() {
       const rent = await getCategoriesTypes({type: 1})
-    const services = await getCategoriesTypes({type: 'services'})
+    const services = await getCategoriesTypes({type: 2})
     const products = await getCategoriesTypes({type: 3})
       const t = await getTranslations('common.header');
     if (!rent || !services || !products) {
