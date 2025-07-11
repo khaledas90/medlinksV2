@@ -25,17 +25,17 @@ import { getActionVariant } from "@/lib/utils"
 import { SlideData } from "@/types/hero"
 import doctors from "@/assets/doctors.jpg"
 import hospitals from "@/assets/hospital.jpg"
-import equipment from "@/assets/Equipment.jpg"
-import Rental from "@/assets/Rental.jpg"
+import equipment from "@/assets/fully Equipped.png"
+import Rental from "@/assets/medical-rental.png"
+import { useTranslations } from "next-intl"
 
 
 const slides: SlideData[] = [
   {
     id: 1,
-    title: "Book Your Doctor Appointment",
-    subtitle: "Expert Medical Care at Your Fingertips",
+    title: "Book Your Doctor Appointment", 
     description:
-      "Connect with certified doctors and specialists. Get professional medical consultation from the comfort of your home or visit our clinics.",
+      "Connect with certified doctors and specialists Get professional medical consultation from the comfort of your home or visit our clinics",
     image: doctors  ,
     primaryAction: {
       text: "Book Doctor Now",
@@ -47,19 +47,13 @@ const slides: SlideData[] = [
       icon: <Stethoscope className="w-5 h-5" />,
     },
     badge: "24/7 Available",
-    stats: [
-      { value: "500+", label: "Doctors" },
-      { value: "50k+", label: "Patients" },
-      { value: "4.9", label: "Rating" },
-    ],
     gradient: "from-[#3abff8] via-[#3abff8]/90 to-[#3abff8]/80",
   },
   {
     id: 2,
-    title: "Premium Hospital Services",
-    subtitle: "World-Class Healthcare Facilities",
+    title: "Premium Hospital Services", 
     description:
-      "Access top-tier hospital services with state-of-the-art equipment, experienced medical staff, and comprehensive care packages.",
+      "Access top-tier hospital services with state-of-the-art equipment, experienced medical staff, and comprehensive care packages",
     image: hospitals,
     primaryAction: {
       text: "Book Hospital",
@@ -70,20 +64,14 @@ const slides: SlideData[] = [
       text: "View Facilities",
       icon: <Shield className="w-5 h-5" />,
     },
-    badge: "Emergency Ready",
-    stats: [
-      { value: "25+", label: "Hospitals" },
-      { value: "1000+", label: "Beds" },
-      { value: "24/7", label: "Emergency" },
-    ],
+    badge: "Emergency Ready" ,
     gradient: "from-[#ff9000] via-[#ff9000]/90 to-[#ff9000]/80",
   },
   {
     id: 3,
-    title: "Medical Products & Equipment",
-    subtitle: "Quality Healthcare Products",
+    title: "Fully Equipped Home ICU setups", 
     description:
-      "Shop from our extensive collection of medical products, equipment, and healthcare essentials with guaranteed quality and fast delivery.",
+      "At Medlinks, we bring hospital-grade intensive care directly into the homes of patients who require critical support without compromising comfort or safety Our fully equipped Home ICU setups are ideal for patients with chronic illnesses, post-operative recovery, or long-term ventilation needs",
     image: equipment,
     primaryAction: {
       text: "Shop Products",
@@ -94,20 +82,14 @@ const slides: SlideData[] = [
       text: "View Catalog",
       icon: <Heart className="w-5 h-5" />,
     },
-    badge: "Free Delivery",
-    stats: [
-      { value: "10k+", label: "Products" },
-      { value: "99%", label: "Quality" },
-      { value: "24h", label: "Delivery" },
-    ],
+    badge: "Free Delivery" ,
     gradient: "from-[#3abff8] via-[#ff9000]/50 to-[#3abff8]/70",
   },
   {
     id: 4,
-    title: "Medical Equipment Rental",
-    subtitle: "Affordable Healthcare Solutions",
+    title: "Medical Equipment Rental", 
     description:
-      "Rent medical equipment and devices at affordable rates. Perfect for temporary needs, recovery periods, or home healthcare.",
+      "Rent medical equipment and devices at affordable rates Perfect for temporary needs, recovery periods, or home healthcare",
     image: Rental,
     primaryAction: {
       text: "Rent Equipment",
@@ -118,12 +100,7 @@ const slides: SlideData[] = [
       text: "View Rentals",
       icon: <Star className="w-5 h-5" />,
     },
-    badge: "Flexible Terms",
-    stats: [
-      { value: "500+", label: "Equipment" },
-      { value: "30%", label: "Savings" },
-      { value: "7d", label: "Min Rental" },
-    ],
+    badge: "Flexible Terms" ,
     gradient: "from-[#ff9000] via-[#3abff8]/50 to-[#ff9000]/70",
   },
 ]
@@ -132,7 +109,7 @@ export default function HeroSlider() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isPlaying, setIsPlaying] = useState(true)
   const [isAnimating, setIsAnimating] = useState(false)
-
+  const t =   useTranslations('common.home');
   useEffect(() => {
     if (!isPlaying) return
 
@@ -169,7 +146,7 @@ export default function HeroSlider() {
   const currentSlideData = slides[currentSlide]
 
   return (
-<div className="relative min-h-screen h-auto overflow-hidden py-1 bg-gray-900 flex flex-col justify-between">
+<div className="relative min-h-screen h-auto overflow-hidden py-1.5 bg-gray-900 flex flex-col justify-between">
   <div
     className={clsx("absolute inset-0 bg-gradient-to-br transition-all duration-1000", currentSlideData.gradient)}
   />
@@ -187,7 +164,7 @@ export default function HeroSlider() {
 
   <div className="relative z-10 flex-1 flex items-center w-full px-6 lg:px-8">
     <div className="container mx-auto px-6 lg:px-8">
-      <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[50vh]"> 
+      <div className="grid lg:grid-cols-2 gap-12 items-center  min-h-[45vh]"> 
         <div
           className={clsx(
             "space-y-8 transition-all duration-700",
@@ -195,23 +172,12 @@ export default function HeroSlider() {
           )}
         > 
           <Badge className="bg-white/20 text-white border-white/30 hover:bg-white/30 text-sm px-4 py-2">
-            {currentSlideData.badge}
+            {t(currentSlideData.badge)}
           </Badge>
           <div className="space-y-4">
-            <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight">{currentSlideData.title}</h1>
-            <h2 className="text-xl lg:text-2xl text-white/90 font-medium">{currentSlideData.subtitle}</h2>
+            <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight">{t(currentSlideData.title)}</h1> 
           </div> 
-          <p className="text-lg text-white/80 leading-relaxed max-w-xl">{currentSlideData.description}</p>
-
-          <div className="flex gap-8">
-            {currentSlideData.stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-2xl lg:text-3xl font-bold text-white">{stat.value}</div>
-                <div className="text-sm text-white/70">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-
+          <p className="text-lg text-white/80 leading-relaxed max-w-xl">{t(currentSlideData.description)}</p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button
               size="lg"
@@ -221,7 +187,7 @@ export default function HeroSlider() {
               )}
             >
               {currentSlideData.primaryAction.icon}
-              {currentSlideData.primaryAction.text}
+              {t(currentSlideData.primaryAction.text)}
             </Button>
             <Button
               variant="outline"
@@ -229,7 +195,7 @@ export default function HeroSlider() {
               className="border-white/30 text-white hover:bg-white/10 px-8 py-4 rounded-full transition-all duration-300 bg-transparent"
             >
               {currentSlideData.secondaryAction.icon}
-              {currentSlideData.secondaryAction.text}
+              {t(currentSlideData.secondaryAction.text)}
             </Button>
           </div>
         </div>
@@ -246,7 +212,7 @@ export default function HeroSlider() {
             <div className="relative bg-white/10 backdrop-blur-sm rounded-3xl p-6 border border-white/20 flex justify-center items-center">
               <Image
                 src={currentSlideData.image || "/placeholder.svg"}
-                alt={currentSlideData.title}
+                alt={t(currentSlideData.title)}
                 width={320}
                 height={200}
                 className="w-[500px] h-auto rounded-2xl shadow-2xl object-contain"

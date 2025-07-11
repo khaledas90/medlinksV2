@@ -2,8 +2,7 @@ import { StaticImageData } from "next/image"
 
 export interface SlideData {
   id: number
-  title: string
-  subtitle: string
+  title: string 
   description: string
   image: string | StaticImageData
   primaryAction: {
@@ -15,10 +14,6 @@ export interface SlideData {
     text: string
     icon: React.ReactNode
   }
-  badge: string
-  stats: Array<{
-    value: string
-    label: string
-  }>
+  badge: string 
   gradient: string
 }
