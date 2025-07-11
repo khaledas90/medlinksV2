@@ -57,6 +57,133 @@
     "product": "product",
     "rent": "rent",
     "service": "service"
+  },
+  "about":{
+        "legacy_compassion": "Legacy of Compassion, A Future of Care",
+        "medlinks_title": "MedLinks",
+        "medlinks_desc": "Our journey began twenty years ago in the heart of medical charity, working closely with hospitals and witnessing firsthand the struggles patients face after their hospital stay.",
+        "learn_more": "Learn More",
+        "contact_us": "Contact Us",
+        "our_story": "Our Story",
+        "more_than_medical_devices": "More Than Medical Devices",
+        "medical_devices_desc1": "It was this belief that shaped MedLinks. We are more than a provider of medical devices; we are advocates for patient dignity and well-being.",
+        "medical_devices_desc2": "Born from our deep-rooted experience in medical charity, we understand the challenges patients face beyond the hospital doors.",
+        "years_of_care": "20 Years Of Compassionate Care",
+        "mission": "Our Mission",
+        "mission_desc1": "At MedLinks, we believe that healing is not just a medical process—it's a human journey that deserves comfort, dignity, and accessibility.",
+        "mission_desc2": "Our mission is to empower individuals with high-quality medical equipment and compassionate healthcare services.",
+        "vision": "Our Vision",
+        "vision_desc1": "We envision a future where no patient feels abandoned in their journey toward recovery.",
+        "vision_desc2": "At MedLinks, our vision is to revolutionize medical accessibility, transforming the way people experience care beyond hospital walls.",
+        "vision_desc3": "Because recovery isn't just about medical treatment—it's about dignity, choice, and the unwavering right to heal with comfort.",
+        "what_drives_us": "What Drives Us",
+        "core_values": "Our Core Values",
+        "values_desc": "These principles guide every decision we make and every solution we provide",
+        "compassion": "Compassion",
+        "compassion_desc": "Every interaction is guided by empathy, understanding, and genuine care for the wellbeing of others.",
+        "dignity": "Dignity",
+        "dignity_desc": "We uphold patient dignity in every service, ensuring respect and honor throughout the healing journey.",
+        "accessibility": "Accessibility",
+        "accessibility_desc": "Healthcare should be accessible to all, regardless of location, background, or financial circumstances.",
+        "excellence": "Excellence",
+        "excellence_desc": "We strive for excellence in everything we do, continuously improving our services and support.",
+        "ready_experience": "Ready to Experience Compassionate Care?",
+        "join_mission": "Join us in our mission to make quality healthcare accessible, comfortable, and affordable for everyone.",
+        "get_started": "Get Started"
+  },
+  "policy":{
+   "header": {
+      "title": "Privacy Policy & Terms",
+      "subtitle": "Your privacy and security are our top priorities. Learn how we protect and handle your personal information."
+    },
+    "introduction": {
+      "title": "Introduction",
+      "content": "These Terms and accompanying definitions apply to your use of our services. \"MED LINKS MEDICAL, SURGICAL EQUIPMENT & INSTRUMENTS TRADING CO. L.L.C\", \"mymedlinks,\" \"we,\" \"us,\" or \"our\" is committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard the data you provide.",
+      "guarantee": "All credit/debit cards' details and personally identifiable information will NOT be stored, sold, shared, rented or leased to any third parties."
+    },
+    "security": {
+      "title": "Security & Data Protection",
+      "payment": {
+        "title": "Payment Security",
+        "content": "mymedlinks will not pass any debit/credit card details to third parties."
+      },
+      "dataPrivacy": {
+        "title": "Data Privacy",
+        "content": "We take appropriate steps to ensure data privacy and security including through various hardware and software methodologies."
+      },
+      "important": "Important",
+      "disclaimer": "However, mymedlinks (website) cannot guarantee the security of any information that is disclosed online.",
+      "thirdParty": "mymedlinks is not responsible for the privacy policies of websites to which it links. If you provide any information to such third parties, different rules regarding the collection and use of your personal information may apply. You should contact these entities directly if you have any questions about their use of the information that they collect."
+    },
+    "disclaimer": {
+      "title": "Disclaimer",
+      "content": "Our services may be offered through third-party entities. Although we partner with reputable providers, we are not responsible for their actions or policies. By using our services, you acknowledge and accept these risks. For more information, please refer to our full Terms of Service or contact us."
+    },
+    "definitions": {
+      "title": "Definitions",
+      "items":{
+        "item-1":"MED LINKS MEDICAL, SURGICAL EQUIPMENT & INSTRUMENTS TRADING CO. L.L.C",
+        "item-1-def":"Refers to mymedlinks, an online platform for medical supplies and equipment.",
+        "item-2":"User, You, Your",
+        "item-2-def":"Refers to the individual using mymedlinks services.",
+        "item-3":"Site",
+        "item-3-def":"Refers to the mymedlinks website at www.mymedlinks.com.",
+        "item-4":"Terms of Service",
+        "item-4-def":"Refers to the agreement between you and mymedlinks that governs your use of mymedlinks services."
+      }
+    },
+    "detailedPolicies": {
+      "title": "Detailed Privacy Policies",
+      "description": "Comprehensive information about how we handle your data",
+      "informationCollection": {
+        "title": "Information Collection",
+        "content": "We may collect personal data such as your name, email, address, and payment details when you place an order, create an account, or contact us. We also receive your IP address automatically to better understand your device and improve user experience."
+      },
+      "useOfInformation": {
+        "title": "Use of Information",
+        "content": "We use your information to fulfill orders, communicate about orders and accounts, send promotional materials (with consent), and enhance our site and service quality using usage data."
+      },
+      "disclosureOfInformation": {
+        "title": "Disclosure of Information",
+        "content": "Your personal data may be shared with trusted third-party providers who assist in running our website and services. These partners are bound by confidentiality and data security agreements. Information may also be disclosed if legally required or to protect safety and property."
+      },
+      "privacySecurity": {
+        "title": "Privacy and Security",
+        "content": "We implement industry-standard measures like SSL encryption to keep your personal information safe from unauthorized access or misuse."
+      },
+      "cookies": {
+        "title": "Cookies",
+        "content": "Mymedlinks uses cookies to improve your browsing experience. You can disable cookies in your browser, but some site features may be affected."
+      },
+      "ageConsent": {
+        "title": "Age of Consent",
+        "content": "By using our website, you confirm that you are of legal age in your location or have obtained parental permission."
+      },
+      "policyChanges": {
+        "title": "Changes to this Privacy Policy",
+        "content": "This Privacy Policy may be updated periodically. All changes will take effect immediately upon posting. Please review this page regularly."
+      }
+    },
+    "contact": {
+      "title": "Contact Us",
+      "description": "For questions, feedback, or concerns about our privacy practices",
+      "email": {
+        "label": "Email",
+        "value": "info@mymedlinks.com"
+      },
+      "phone": {
+        "label": "Phone",
+        "value": "+971522044556"
+      },
+      "address": {
+        "label": "Address",
+        "value": "Showroom: Al Qusais Industrial first, 242-107, Dubai"
+      },
+      "website": {
+        "label": "Website",
+        "value": "www.mymedlinks.com"
+      }
+    }
   }
   }
 }

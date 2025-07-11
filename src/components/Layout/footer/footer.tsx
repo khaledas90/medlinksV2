@@ -57,7 +57,7 @@ export default function Footer() {
         <div className="border-t border-white/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-gray-200">{t('Rights')}</p>
           <div className="flex space-x-4 mt-4 md:mt-0">
-            <Link href="/policy" className="text-sm hover:text-gray-200">{t('OurPolicy')}</Link>
+            <Link href="/our-policy" className="text-sm hover:text-gray-200">{t('OurPolicy')}</Link>
             <Link href="/return-policy" className="text-sm hover:text-gray-200">{t('ReturnPolicy')}</Link>
             <Link href="/terms" className="text-sm hover:text-gray-200">{t('Terms')}</Link>
           </div>

@@ -54,7 +54,7 @@ export default async function Header() {
           <nav className="hidden lg:flex items-center space-x-6"> 
             <MenuCategoryHeader   navigationItems={navigationItems} />
             <Link
-              href="/about"
+              href="/about-us"
               className="text-gray-700 hover:text-[#3ABFF8] transition-colors duration-200 font-medium"
             >
             {t("About Us")}
