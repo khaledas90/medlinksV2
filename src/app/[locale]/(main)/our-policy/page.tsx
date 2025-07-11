@@ -62,23 +62,6 @@ export default function PolicyPage() {
             </CardContent>
           </Card>
 
-          <Card className="mb-8 border-l-4 border-l-[#3ABFF8]">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-3 text-2xl">
-                <FileText className="h-6 w-6 text-[#3ABFF8]" />
-                {t("introduction.title")}
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="text-gray-700 leading-relaxed">
-              <p className="mb-4">{t("introduction.content")}</p>
-              <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                <p className="text-green-800 font-medium">
-                  ✓ {t("introduction.guarantee")}
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-
           <Card className="mb-8 border-l-4 border-l-green-500">
             <CardHeader>
               <CardTitle className="flex items-center gap-3 text-2xl">
