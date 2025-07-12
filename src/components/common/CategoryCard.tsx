@@ -37,9 +37,7 @@ export default async function CategoryCard({category}:{category:Category}) {
               {locale== 'en'? category.description : category.descriptionAr}
             </p>
             <div className="flex items-center justify-between mb-3">
-              <span className="text-lg font-bold text-blue-600">
-                 {t("Rate for")} {category.type === 1 ? t("product") : category.type === 3 ? t("rent") : t("service")}:
-              </span>
+              
               <div className="flex items-center">
                 {[...Array(5)].map((_, i) => (
                   <span
