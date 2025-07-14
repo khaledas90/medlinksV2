@@ -236,6 +236,72 @@
         "notice": "Compliance Notice:",
         "content": "We will not trade with or provide any services to OFAC and sanctioned countries."
       },
+      "detailedTermsAndConditions": {
+        "title": "Detailed Terms and Conditions",
+        "description": "Comprehensive terms governing the use of our services",
+        "ageRestrictions": "Age Restrictions",
+        "ageRequirements": "Age Requirements",
+        "ageRequirementsContent": "Users must be at least 18 years old to use the website.",
+        "Age Verification Requirements:": "Age Verification Requirements:",
+        "Users must be 18 years or older to create an account": "Users must be 18 years or older to create an account",
+        "Age verification may be required for certain transactions": "Age verification may be required for certain transactions",
+        "Parental consent does not override this restriction": "Parental consent does not override this restriction",
+        "We reserve the right to verify age at any time": "We reserve the right to verify age at any time",
+        "accountResponsibility": {
+          "title": "Account Responsibility",
+          "content": "User is responsible for maintaining the confidentiality of their account.",
+          "yourResponsibilitiesTitle": "Your Responsibilities",
+          "yourResponsibility1": "Keep login credentials secure",
+          "yourResponsibility2": "Report unauthorized access immediately",
+          "yourResponsibility3": "Update account information when necessary",
+          "yourResponsibility4": "Use account only for legitimate purposes",
+          "securityBestPracticesTitle": "Security Best Practices",
+          "securityPractice1": "Use strong, unique passwords",
+          "securityPractice2": "Log out from shared devices",
+          "securityPractice3": "Monitor account activity regularly",
+          "securityPractice4": "Enable two-factor authentication if available"
+        },
+        "transactionRecords": {
+          "title": "Transaction Records",
+          "content": "Cardholder must retain a copy of transaction records and mymedlinks policies and rules.",
+          "subTitle": "Record Keeping Requirements:",
+          "point1": "Save all transaction confirmations and receipts",
+          "point2": "Keep copies of terms and conditions",
+          "point3": "Maintain records for warranty and return purposes",
+          "point4": "Store payment confirmations securely"
+        },
+        "websiteUsage": {
+          "title": "Website Usage Terms",
+          "permittedTitle": "Permitted Uses",
+          "permitted1": "Browse and purchase medical equipment",
+          "permitted2": "Access product information and specifications",
+          "permitted3": "Contact customer support",
+          "permitted4": "Create and manage user accounts",
+          "prohibitedTitle": "Prohibited Activities",
+          "prohibited1": "Unauthorized access to systems",
+          "prohibited2": "Fraudulent transactions",
+          "prohibited3": "Misuse of personal information",
+          "prohibited4": "Violation of applicable laws"
+        },
+        "liabilityLimitations": {
+          "title": "Liability and Limitations",
+          "alert": "Our liability is limited as per UAE law. We provide services \"as is\" and make no warranties beyond those required by law.",
+          "subTitle": "Limitation of Liability:",
+          "point1": "Services provided on an \"as is\" basis",
+          "point2": "No warranty for uninterrupted service",
+          "point3": "Limited liability for indirect damages",
+          "point4": "Maximum liability limited to purchase amount"
+        },
+        "modifications": {
+          "title": "Terms Modifications",
+          "content": "We reserve the right to modify these terms and conditions at any time. Changes will be effective immediately upon posting on the website.",
+          "subTitle": "Notification of Changes:",
+          "point1": "Changes posted on website immediately",
+          "point2": "Email notification for significant changes",
+          "point3": "Continued use implies acceptance",
+          "point4": "Regular review recommended"
+        }
+      },
       "contact": {
         "title": "Contact Information",
         "description": "Thank you for choosing MedLinks. If you have any questions or concerns regarding our terms and conditions, please don't hesitate to contact us.",
@@ -248,6 +314,124 @@
         "websiteTitle": "Website",
         "websiteValue": "www.mymedlinks.com",
         "businessHours": "Business Hours: Sunday to Thursday, 9:00 AM - 6:00 PM (UAE Time)"
+      }
+    },
+    "returnPolicy": {
+      "hero": {
+        "title": "Return and Refund Policy",
+        "description": "Thank you for shopping at MedLinks. We are committed to ensuring your satisfaction with every purchase. Please read our return and refund policy carefully to understand your rights and obligations."
+      },
+      "eligibility": {
+        "title": "Return Eligibility",
+        "returnWindowTitle": "7-Day Return Window",
+        "returnWindowDescription": "We accept returns within 7 days of product delivery or booking, provided the item is unused and in the same condition as received. It must also be in its original packaging.",
+        "originalPackagingTitle": "Original Packaging",
+        "originalPackagingDesc": "Item must be in original packaging",
+        "unusedConditionTitle": "Unused Condition",
+        "unusedConditionDesc": "Product must be unused and undamaged",
+        "sameConditionTitle": "Same Condition",
+        "sameConditionDesc": "Must be in same condition as received",
+        "alert": "Important: Certain items are exempt from returns for hygiene and safety reasons, including intimate or sanitary goods, hazardous materials, flammable liquids, gift cards, custom-made products, and specific health and personal care items."
+      },
+      "nonReturnable": {
+        "title": "Non-Returnable Items",
+        "excludedTitle": "Excluded Items:",
+        "giftCards": "Gift cards",
+        "customMade": "Custom made products",
+        "compression": "Compression garments",
+        "incontinence": "Incontinence products",
+        "hygieneTitle": "Safety & Hygiene Reasons:",
+        "intimate": "Intimate or sanitary goods",
+        "hazardous": "Hazardous materials",
+        "flammable": "Flammable liquids",
+        "personalCare": "Specific health & personal care items"
+      },
+      "title": "Detailed Return & Refund Policies",
+      "description": "Comprehensive information about returns, refunds, and exchanges",
+
+      "partialRefunds": {
+        "title": "Partial Refunds",
+        "desc": "Partial refunds may be granted under the following conditions:",
+        "conditionTitle": "Condition Issues:",
+        "conditionDesc": "If the item is not in its original condition, damaged, or missing parts for reasons not due to our error.",
+        "lateTitle": "Late Returns:",
+        "lateDesc": "If the item is returned after 7 days of delivery."
+      },
+
+      "delivery": {
+        "title": "Delivery Policy",
+        "uaeTitle": "UAE Delivery:",
+        "uae1": "\u2022 Delivery time: 1-2 working days",
+        "uae2": "\u2022 Flat rate: AED 10",
+        "uae3": "\u2022 All UAE cities covered",
+        "uae4": "\u2022 Third-party courier service",
+        "intlTitle": "International Delivery:",
+        "intl1": "\u2022 Delivery time: 4-10 working days",
+        "intl2": "\u2022 Fees shown at checkout",
+        "intl3": "\u2022 All countries covered",
+        "intl4": "\u2022 Varies by location",
+        "alert": "Delivery Tip: Avoid any delivery delay by providing your full address along with your contact details."
+      },
+
+      "refund": {
+        "title": "Refund Processing",
+        "methodTitle": "Refund Method & Timeline:",
+        "methodDesc": "We provide refunds only via the original mode of payment. Refund processing time varies between 10 to 45 days depending on the issuing bank of the credit card.",
+        "confirmTitle": "Payment Confirmation:",
+        "confirmDesc": "Once payment is made, confirmation notice will be sent via email within 24 hours of receipt.",
+        "processingTitle": "Processing Time:",
+        "processingDesc": "Refunds processed within 10-45 days depending on your bank's processing time."
+      },
+
+      "returnProcess": {
+        "title": "Return Process",
+        "requirementsTitle": "Return Requirements:",
+        "requirementsDesc": "We accept returns within 7 days of receipt, only if the delivery packaging has not been opened or the products are damaged or incorrect.",
+        "r1": "\u2022 Items must be sealed and untampered",
+        "r2": "\u2022 Original packaging required",
+        "r3": "\u2022 Use registered courier service",
+        "r4": "\u2022 Notify us before returning",
+        "alert": "Important: We reserve the right to refuse returned shipments if the product has been used or tampered with. Shipping & handling fees are non-refundable."
+      },
+
+      "cancel": {
+        "title": "Cancellation Policy",
+        "windowTitle": "Cancellation Window:",
+        "desc1": "Customers can cancel their orders before the product is shipped to the provided address within 7 days, if payment was made in advance.",
+        "desc2": "Refunds for canceled orders will be issued back to the original payment method. Please allow up to 45 days for the refund transfer to be completed."
+      },
+
+      "missing": {
+        "title": "Late or Missing Refunds",
+        "desc": "If you haven't received a refund yet, please follow these steps:",
+        "stepsTitle": "Step-by-Step Process:",
+        "step1": "Check your bank account",
+        "step2": "Contact your credit card company",
+        "step3": "Contact your bank",
+        "step4": "Contact us at info@mymedlinks.com",
+        "processingTitle": "Processing Times:",
+        "proc1": "\u2022 Bank processing: 5-10 business days",
+        "proc2": "\u2022 Credit card: 1-2 billing cycles",
+        "proc3": "\u2022 International: Up to 45 days",
+        "proc4": "\u2022 Contact us if longer delays occur"
+      },
+
+      "exchange": {
+        "title": "Exchanges",
+        "policyTitle": "Exchange Policy:",
+        "desc1": "We only replace items if they are defective or damaged upon receipt.",
+        "desc2": "To initiate an exchange, please email us at info@mymedlinks.com, and we will arrange for the pickup of the item to be returned."
+      },
+
+      "shipping": {
+        "title": "Shipping for Returns",
+        "returnTitle": "Return Process:",
+        "returnDesc": "To return your product, please email us at info@mymedlinks.com, and we will arrange for the pickup of the product from the original delivery address.",
+        "costTitle": "Shipping Costs:",
+        "cost1": "\u2022 Customer pays return shipping costs",
+        "cost2": "\u2022 Costs vary by product",
+        "cost3": "\u2022 Return shipping is non-refundable",
+        "cost4": "\u2022 Shipping times may vary by location"
       }
     }
   }

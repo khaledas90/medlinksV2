@@ -106,7 +106,7 @@ export default function TermsAndConditionsPage() {
               <Alert className="border-red-200 bg-red-50">
                 <AlertTriangle className="h-4 w-4 text-red-600" />
                 <AlertDescription className="text-red-800">
-                  <strong>{t("legalJurisdiction.notice")}</strong>{" "}
+                  <strong>{t("legalJurisdiction.notice")}</strong>
                   {t("legalJurisdiction.content")}
                 </AlertDescription>
               </Alert>
@@ -165,7 +165,7 @@ export default function TermsAndConditionsPage() {
               <Alert className="border-orange-200 bg-orange-50">
                 <Shield className="h-4 w-4 text-orange-600" />
                 <AlertDescription className="text-orange-800">
-                  <strong>{t("tradingRestrictions.notice")}</strong>{" "}
+                  <strong>{t("tradingRestrictions.notice")}</strong>
                   {t("tradingRestrictions.content")}
                 </AlertDescription>
               </Alert>
@@ -176,10 +176,10 @@ export default function TermsAndConditionsPage() {
           <Card className="mb-8">
             <CardHeader>
               <CardTitle className="text-2xl text-gray-900">
-                Detailed Terms and Conditions
+                {t("detailedTermsAndConditions.title")}
               </CardTitle>
               <CardDescription>
-                Comprehensive terms governing the use of our services
+                {t("detailedTermsAndConditions.description")}
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -188,34 +188,46 @@ export default function TermsAndConditionsPage() {
                   <AccordionTrigger className="text-left">
                     <div className="flex items-center gap-2">
                       <UserCheck className="h-5 w-5 text-red-500" />
-                      Age Restrictions
+                      {t("detailedTermsAndConditions.ageRestrictions")}
                     </div>
                   </AccordionTrigger>
                   <AccordionContent className="space-y-3">
                     <Alert className="border-red-200 bg-red-50">
                       <AlertTriangle className="h-4 w-4 text-red-600" />
                       <AlertDescription className="text-red-800">
-                        <strong>Age Requirement:</strong> Customers who are
-                        minors (under the age of 18) shall not register as users
-                        of the website or transact on or use the website.
+                        <strong className="mx-1">
+                          {t("detailedTermsAndConditions.ageRequirements")}
+                        </strong>
+                        {t("detailedTermsAndConditions.ageRequirementsContent")}
                       </AlertDescription>
                     </Alert>
                     <div className="bg-gray-50 p-4 rounded-lg">
                       <h5 className="font-semibold mb-2">
-                        Age Verification Requirements:
+                        {t(
+                          "detailedTermsAndConditions.Age Verification Requirements:"
+                        )}
                       </h5>
                       <ul className="list-disc list-inside space-y-1 text-sm text-gray-700">
                         <li>
-                          Users must be 18 years or older to create an account
+                          {t(
+                            "detailedTermsAndConditions.Users must be 18 years or older to create an account"
+                          )}
                         </li>
                         <li>
-                          Age verification may be required for certain
-                          transactions
+                          {t(
+                            "detailedTermsAndConditions.Age verification may be required for certain transactions"
+                          )}
                         </li>
                         <li>
-                          Parental consent does not override this restriction
+                          {t(
+                            "detailedTermsAndConditions.Parental consent does not override this restriction"
+                          )}
                         </li>
-                        <li>We reserve the right to verify age at any time</li>
+                        <li>
+                          {t(
+                            "detailedTermsAndConditions.We reserve the right to verify age at any time"
+                          )}
+                        </li>
                       </ul>
                     </div>
                   </AccordionContent>
@@ -225,162 +237,301 @@ export default function TermsAndConditionsPage() {
                   <AccordionTrigger className="text-left">
                     <div className="flex items-center gap-2">
                       <Lock className="h-5 w-5 text-blue-500" />
-                      Account Responsibility
+                      {t(
+                        "detailedTermsAndConditions.accountResponsibility.title"
+                      )}
                     </div>
                   </AccordionTrigger>
                   <AccordionContent className="space-y-3">
                     <p className="text-gray-700">
-                      User is responsible for maintaining the confidentiality of
-                      their account.
+                      {t(
+                        "detailedTermsAndConditions.accountResponsibility.content"
+                      )}
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="bg-blue-50 p-4 rounded-lg">
                         <h5 className="font-semibold text-blue-900 mb-2">
-                          Your Responsibilities
+                          {t(
+                            "detailedTermsAndConditions.accountResponsibility.yourResponsibilitiesTitle"
+                          )}
                         </h5>
                         <ul className="text-blue-800 text-sm space-y-1">
-                          <li>• Keep login credentials secure</li>
-                          <li>• Report unauthorized access immediately</li>
-                          <li>• Update account information when necessary</li>
-                          <li>• Use account only for legitimate purposes</li>
+                          <li>
+                            •
+                            {t(
+                              "detailedTermsAndConditions.accountResponsibility.yourResponsibility1"
+                            )}
+                          </li>
+                          <li>
+                            •
+                            {t(
+                              "detailedTermsAndConditions.accountResponsibility.yourResponsibility2"
+                            )}
+                          </li>
+                          <li>
+                            •
+                            {t(
+                              "detailedTermsAndConditions.accountResponsibility.yourResponsibility3"
+                            )}
+                          </li>
+                          <li>
+                            •
+                            {t(
+                              "detailedTermsAndConditions.accountResponsibility.yourResponsibility4"
+                            )}
+                          </li>
                         </ul>
                       </div>
                       <div className="bg-green-50 p-4 rounded-lg">
                         <h5 className="font-semibold text-green-900 mb-2">
-                          Security Best Practices
+                          {t(
+                            "detailedTermsAndConditions.accountResponsibility.securityBestPracticesTitle"
+                          )}
                         </h5>
                         <ul className="text-green-800 text-sm space-y-1">
-                          <li>• Use strong, unique passwords</li>
-                          <li>• Log out from shared devices</li>
-                          <li>• Monitor account activity regularly</li>
                           <li>
-                            • Enable two-factor authentication if available
+                            •
+                            {t(
+                              "detailedTermsAndConditions.accountResponsibility.securityPractice1"
+                            )}
+                          </li>
+                          <li>
+                            •
+                            {t(
+                              "detailedTermsAndConditions.accountResponsibility.securityPractice2"
+                            )}
+                          </li>
+                          <li>
+                            •
+                            {t(
+                              "detailedTermsAndConditions.accountResponsibility.securityPractice3"
+                            )}
+                          </li>
+                          <li>
+                            •
+                            {t(
+                              "detailedTermsAndConditions.accountResponsibility.securityPractice4"
+                            )}
                           </li>
                         </ul>
                       </div>
                     </div>
                   </AccordionContent>
                 </AccordionItem>
-
+                {/* Transaction Records */}
                 <AccordionItem value="transaction-records">
                   <AccordionTrigger className="text-left">
                     <div className="flex items-center gap-2">
                       <FileText className="h-5 w-5 text-purple-500" />
-                      Transaction Records
+                      {t("detailedTermsAndConditions.transactionRecords.title")}
                     </div>
                   </AccordionTrigger>
                   <AccordionContent className="space-y-3">
                     <p className="text-gray-700">
-                      Cardholder must retain a copy of transaction records and
-                      mymedlinks policies and rules.
+                      {t(
+                        "detailedTermsAndConditions.transactionRecords.content"
+                      )}
                     </p>
                     <div className="bg-purple-50 p-4 rounded-lg">
                       <h5 className="font-semibold text-purple-900 mb-2">
-                        Record Keeping Requirements:
+                        {t(
+                          "detailedTermsAndConditions.transactionRecords.subTitle"
+                        )}
                       </h5>
                       <ul className="text-purple-800 text-sm space-y-1">
                         <li>
-                          • Save all transaction confirmations and receipts
+                          •{" "}
+                          {t(
+                            "detailedTermsAndConditions.transactionRecords.point1"
+                          )}
                         </li>
-                        <li>• Keep copies of terms and conditions</li>
                         <li>
-                          • Maintain records for warranty and return purposes
+                          •{" "}
+                          {t(
+                            "detailedTermsAndConditions.transactionRecords.point2"
+                          )}
                         </li>
-                        <li>• Store payment confirmations securely</li>
+                        <li>
+                          •{" "}
+                          {t(
+                            "detailedTermsAndConditions.transactionRecords.point3"
+                          )}
+                        </li>
+                        <li>
+                          •{" "}
+                          {t(
+                            "detailedTermsAndConditions.transactionRecords.point4"
+                          )}
+                        </li>
                       </ul>
                     </div>
                   </AccordionContent>
                 </AccordionItem>
 
+                {/* Website Usage Terms */}
                 <AccordionItem value="website-usage">
                   <AccordionTrigger className="text-left">
                     <div className="flex items-center gap-2">
                       <Globe className="h-5 w-5 text-green-500" />
-                      Website Usage Terms
+                      {t("detailedTermsAndConditions.websiteUsage.title")}
                     </div>
                   </AccordionTrigger>
                   <AccordionContent className="space-y-3">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="bg-green-50 p-4 rounded-lg">
                         <h5 className="font-semibold text-green-900 mb-2">
-                          Permitted Uses
+                          {t(
+                            "detailedTermsAndConditions.websiteUsage.permittedTitle"
+                          )}
                         </h5>
                         <ul className="text-green-800 text-sm space-y-1">
-                          <li>• Browse and purchase medical equipment</li>
                           <li>
-                            • Access product information and specifications
+                            •{" "}
+                            {t(
+                              "detailedTermsAndConditions.websiteUsage.permitted1"
+                            )}
                           </li>
-                          <li>• Contact customer support</li>
-                          <li>• Create and manage user accounts</li>
+                          <li>
+                            •{" "}
+                            {t(
+                              "detailedTermsAndConditions.websiteUsage.permitted2"
+                            )}
+                          </li>
+                          <li>
+                            •{" "}
+                            {t(
+                              "detailedTermsAndConditions.websiteUsage.permitted3"
+                            )}
+                          </li>
+                          <li>
+                            •{" "}
+                            {t(
+                              "detailedTermsAndConditions.websiteUsage.permitted4"
+                            )}
+                          </li>
                         </ul>
                       </div>
                       <div className="bg-red-50 p-4 rounded-lg">
                         <h5 className="font-semibold text-red-900 mb-2">
-                          Prohibited Activities
+                          {t(
+                            "detailedTermsAndConditions.websiteUsage.prohibitedTitle"
+                          )}
                         </h5>
                         <ul className="text-red-800 text-sm space-y-1">
-                          <li>• Unauthorized access to systems</li>
-                          <li>• Fraudulent transactions</li>
-                          <li>• Misuse of personal information</li>
-                          <li>• Violation of applicable laws</li>
+                          <li>
+                            •{" "}
+                            {t(
+                              "detailedTermsAndConditions.websiteUsage.prohibited1"
+                            )}
+                          </li>
+                          <li>
+                            •{" "}
+                            {t(
+                              "detailedTermsAndConditions.websiteUsage.prohibited2"
+                            )}
+                          </li>
+                          <li>
+                            •{" "}
+                            {t(
+                              "detailedTermsAndConditions.websiteUsage.prohibited3"
+                            )}
+                          </li>
+                          <li>
+                            •{" "}
+                            {t(
+                              "detailedTermsAndConditions.websiteUsage.prohibited4"
+                            )}
+                          </li>
                         </ul>
                       </div>
                     </div>
                   </AccordionContent>
                 </AccordionItem>
 
+                {/* Liability and Limitations */}
                 <AccordionItem value="liability-limitations">
                   <AccordionTrigger className="text-left">
                     <div className="flex items-center gap-2">
                       <Shield className="h-5 w-5 text-orange-500" />
-                      Liability and Limitations
+                      {t(
+                        "detailedTermsAndConditions.liabilityLimitations.title"
+                      )}
                     </div>
                   </AccordionTrigger>
                   <AccordionContent className="space-y-3">
                     <Alert className="border-orange-200 bg-orange-50">
                       <AlertTriangle className="h-4 w-4 text-orange-600" />
                       <AlertDescription className="text-orange-800">
-                        Our liability is limited as per UAE law. We provide
-                        services "as is" and make no warranties beyond those
-                        required by law.
+                        {t(
+                          "detailedTermsAndConditions.liabilityLimitations.alert"
+                        )}
                       </AlertDescription>
                     </Alert>
                     <div className="bg-gray-50 p-4 rounded-lg">
                       <h5 className="font-semibold mb-2">
-                        Limitation of Liability:
+                        {t(
+                          "detailedTermsAndConditions.liabilityLimitations.subTitle"
+                        )}
                       </h5>
                       <ul className="list-disc list-inside space-y-1 text-sm text-gray-700">
-                        <li>Services provided on an "as is" basis</li>
-                        <li>No warranty for uninterrupted service</li>
-                        <li>Limited liability for indirect damages</li>
-                        <li>Maximum liability limited to purchase amount</li>
+                        <li>
+                          {t(
+                            "detailedTermsAndConditions.liabilityLimitations.point1"
+                          )}
+                        </li>
+                        <li>
+                          {t(
+                            "detailedTermsAndConditions.liabilityLimitations.point2"
+                          )}
+                        </li>
+                        <li>
+                          {t(
+                            "detailedTermsAndConditions.liabilityLimitations.point3"
+                          )}
+                        </li>
+                        <li>
+                          {t(
+                            "detailedTermsAndConditions.liabilityLimitations.point4"
+                          )}
+                        </li>
                       </ul>
                     </div>
                   </AccordionContent>
                 </AccordionItem>
 
+                {/* Terms Modifications */}
                 <AccordionItem value="modifications">
                   <AccordionTrigger className="text-left">
                     <div className="flex items-center gap-2">
                       <FileText className="h-5 w-5 text-blue-500" />
-                      Terms Modifications
+                      {t("detailedTermsAndConditions.modifications.title")}
                     </div>
                   </AccordionTrigger>
                   <AccordionContent className="space-y-3">
                     <p className="text-gray-700">
-                      We reserve the right to modify these terms and conditions
-                      at any time. Changes will be effective immediately upon
-                      posting on the website.
+                      {t("detailedTermsAndConditions.modifications.content")}
                     </p>
                     <div className="bg-blue-50 p-4 rounded-lg">
                       <h5 className="font-semibold text-blue-900 mb-2">
-                        Notification of Changes:
+                        {t("detailedTermsAndConditions.modifications.subTitle")}
                       </h5>
                       <ul className="text-blue-800 text-sm space-y-1">
-                        <li>• Changes posted on website immediately</li>
-                        <li>• Email notification for significant changes</li>
-                        <li>• Continued use implies acceptance</li>
-                        <li>• Regular review recommended</li>
+                        <li>
+                          •{" "}
+                          {t("detailedTermsAndConditions.modifications.point1")}
+                        </li>
+                        <li>
+                          •{" "}
+                          {t("detailedTermsAndConditions.modifications.point2")}
+                        </li>
+                        <li>
+                          •{" "}
+                          {t("detailedTermsAndConditions.modifications.point3")}
+                        </li>
+                        <li>
+                          •{" "}
+                          {t("detailedTermsAndConditions.modifications.point4")}
+                        </li>
                       </ul>
                     </div>
                   </AccordionContent>
@@ -450,7 +601,7 @@ export default function TermsAndConditionsPage() {
 
               <div className="mt-6 p-4 bg-gradient-to-r from-[#3ABFF8]/10 to-[#FF8C00]/10 rounded-lg border border-[#3ABFF8]/20">
                 <p className="text-center text-gray-700">
-                  <strong>{t("contact.businessHours").split(":")[0]}:</strong>{" "}
+                  <strong>{t("contact.businessHours").split(":")[0]}:</strong>
                   {t("contact.businessHours")
                     .split(":")
                     .slice(1)
