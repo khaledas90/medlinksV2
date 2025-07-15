@@ -13,7 +13,13 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 import { Product } from "@/actions/product";
 
-export default function ProductCard({ product }: { product: Product }) {
+export default function ProductCard({
+  product,
+  locale,
+}: {
+  product: Product;
+  locale: string;
+}) {
   const calculateDiscountedPrice = (price: number, discount: number) => {
     return price - (price * discount) / 100;
   };
@@ -28,7 +34,7 @@ export default function ProductCard({ product }: { product: Product }) {
             <Link href={`/product/${product.id}`}>
               <Image
                 src={`https://mymedlinks.com/${product.imagePath}`}
-                alt={product.name}
+                alt={locale == "en" ? product.name : product.nameAr}
                 width={300}
                 height={300}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
@@ -50,10 +56,11 @@ export default function ProductCard({ product }: { product: Product }) {
             )}
           </div>
         </div>
-
         <CardHeader className="p-4">
           <CardTitle className="text-lg text-gray-900 line-clamp-1 transition-colors duration-300 group-hover:text-[#FF8C00]">
-            <Link href={`/product/${product.id}`}>{product.name}</Link>
+            <Link href={`/product/${product.id}`}>
+              {locale == "en" ? product.name : product.nameAr}
+            </Link>
           </CardTitle>
           <div className="flex items-center gap-1 mb-2 animate-fade-in">
             {[...Array(5)].map((_, i) => (
@@ -67,8 +74,6 @@ export default function ProductCard({ product }: { product: Product }) {
               />
             ))}
           </div>
-
-          {/* Pricing */}
           <div className="space-y-1">
             <div className="flex items-center gap-2">
               {product.discount > 0 ? (

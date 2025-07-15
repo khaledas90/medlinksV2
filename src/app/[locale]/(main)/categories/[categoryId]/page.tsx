@@ -20,7 +20,7 @@ export default async function CategoryProductsPage({ params }: Props) {
   const products = await getProducts({
     categoryId: categoryId,
   });
-  console.log(locale);
+  console.log(products);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -37,7 +37,11 @@ export default async function CategoryProductsPage({ params }: Props) {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:mx-10 mx-1.5">
               {products?.content.map((product) => (
-                <ProductCard key={product.id} product={product} />
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  locale={locale}
+                />
               ))}
             </div>
           )}

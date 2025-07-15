@@ -6,12 +6,16 @@ export interface Product {
   categoryId: number;
   categoryTypeId: number;
   discount: number;
+  description: string;
+  active: boolean;
   imagePath: string;
   name: string;
   nameAr: string;
   price: number;
   rent: number;
   rating: number;
+  descriptionAr: string;
+  images: { path: string }[];
 }
 
 export const getProducts = async ({ categoryId }: { categoryId: string }) => {
@@ -24,6 +28,19 @@ export const getProducts = async ({ categoryId }: { categoryId: string }) => {
         },
       }
     );
+    return res;
+  } catch (err) {
+    return null;
+  }
+};
+
+export const getProductById = async ({ productId }: { productId: number }) => {
+  try {
+    const res = await fetcher<Product>(`products/${productId}`, {
+      next: {
+        tags: ["Products"],
+      },
+    });
     return res;
   } catch (err) {
     return null;
