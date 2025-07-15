@@ -71,7 +71,7 @@ export default async function CategoryCard({
               >
                 {category.type === 1
                   ? t("Buy Now")
-                  : category.type === 2
+                  : category.type === 3
                   ? t("Rent Now")
                   : t("Contact for Price")}
               </Button>

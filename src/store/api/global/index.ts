@@ -3,7 +3,7 @@ import { createApi } from "@reduxjs/toolkit/query/react";
 
 export const mainApi = createApi({
   reducerPath: "main-api",
-  tagTypes: ["Users"],
+  tagTypes: ["Order"],
   baseQuery: axiosBaseQuery({ baseUrl: "" }),
   endpoints: () => ({}),
 });

@@ -1,28 +1,37 @@
 "use client";
 
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import {
-  Star,
-  ShoppingCart,
-  CreditCard,
-  Truck,
-  Shield,
-  Award,
-  Clock,
-} from "lucide-react";
+import { Star, Truck, Shield, Award, Clock } from "lucide-react";
 import { Product } from "@/actions/product";
 
+function InfoBox({
+  icon,
+  title,
+  subtitle,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  subtitle: string;
+}) {
+  return (
+    <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+      {icon}
+      <div>
+        <p className="font-medium text-gray-900 text-sm">{title}</p>
+        <p className="text-xs text-gray-600">{subtitle}</p>
+      </div>
+    </div>
+  );
+}
+
 export default function ProductInfo({ product }: { product: Product }) {
-  const discountedPrice = product.price
-    ? product.price
-    : product.discount
-    ? product.price * (1 - product.discount / 100)
+  const hasDiscount = product.discount && product.discount > 0;
+  const discountedPrice = hasDiscount
+    ? product.price - (product.price * product.discount) / 100
     : product.price;
 
-  const savings = product.price ? product.price - product.price : 0;
+  const savings = hasDiscount ? product.price - discountedPrice : 0;
 
   return (
     <div className="space-y-6">
@@ -32,6 +41,7 @@ export default function ProductInfo({ product }: { product: Product }) {
       >
         {product.active ? "Active" : "Inactive"}
       </Badge>
+
       <div className="space-y-3">
         <h1 className="text-3xl font-bold text-gray-900 leading-tight">
           {product.name}
@@ -61,21 +71,20 @@ export default function ProductInfo({ product }: { product: Product }) {
 
       <Separator />
 
-      {/* Pricing */}
       <div className="space-y-3">
         <div className="flex items-baseline gap-3">
           <span className="text-4xl font-bold text-[#3ABFF8]">
             AED {discountedPrice.toLocaleString()}
           </span>
-          {product.price && (
-            <span className="text-xl text-gray-500 line-through">
-              AED {product.price.toLocaleString()}
-            </span>
-          )}
-          {product.discount && (
-            <Badge className="bg-red-500 text-white">
-              -{product.discount}% OFF
-            </Badge>
+          {hasDiscount && (
+            <>
+              <span className="text-xl text-gray-500 line-through">
+                AED {product.price.toLocaleString()}
+              </span>
+              <Badge className="bg-red-500 text-white">
+                -{product.discount}% OFF
+              </Badge>
+            </>
           )}
         </div>
         {savings > 0 && (
@@ -88,34 +97,26 @@ export default function ProductInfo({ product }: { product: Product }) {
       <Separator />
 
       <div className="grid grid-cols-2 gap-4">
-        <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-          <Truck className="h-5 w-5 text-[#3ABFF8]" />
-          <div>
-            <p className="font-medium text-gray-900 text-sm">Free Delivery</p>
-            <p className="text-xs text-gray-600">Within UAE</p>
-          </div>
-        </div>
-        <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-          <Shield className="h-5 w-5 text-green-600" />
-          <div>
-            <p className="font-medium text-gray-900 text-sm">Warranty</p>
-            <p className="text-xs text-gray-600">1 Year</p>
-          </div>
-        </div>
-        <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-          <Award className="h-5 w-5 text-purple-600" />
-          <div>
-            <p className="font-medium text-gray-900 text-sm">Quality</p>
-            <p className="text-xs text-gray-600">Certified</p>
-          </div>
-        </div>
-        <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-          <Clock className="h-5 w-5 text-orange-600" />
-          <div>
-            <p className="font-medium text-gray-900 text-sm">Support</p>
-            <p className="text-xs text-gray-600">24/7</p>
-          </div>
-        </div>
+        <InfoBox
+          icon={<Truck className="h-5 w-5 text-[#3ABFF8]" />}
+          title="Free Delivery"
+          subtitle="Within UAE"
+        />
+        <InfoBox
+          icon={<Shield className="h-5 w-5 text-green-600" />}
+          title="Warranty"
+          subtitle="1 Year"
+        />
+        <InfoBox
+          icon={<Award className="h-5 w-5 text-purple-600" />}
+          title="Quality"
+          subtitle="Certified"
+        />
+        <InfoBox
+          icon={<Clock className="h-5 w-5 text-orange-600" />}
+          title="Support"
+          subtitle="24/7"
+        />
       </div>
     </div>
   );

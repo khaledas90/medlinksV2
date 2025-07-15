@@ -2,6 +2,7 @@ import { getAllCategory } from "@/actions/categories";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -16,11 +17,10 @@ export default async function HeaderCategory({
   locale: string;
 }) {
   const category = await getAllCategory();
-
+  const t = await getTranslations("common.product");
   const categorySpesific = category?.find(
-    (category) => (category.id = categoryId)
+    (category) => category.id === categoryId
   );
-  console.log(categorySpesific);
 
   return (
     <section className="bg-white py-8 border-b">
@@ -33,7 +33,7 @@ export default async function HeaderCategory({
                 className="text-gray-600 hover:text-[#3ABFF8] hover:bg-gray-100 mb-4 p-2"
               >
                 <ArrowLeft className="h-5 w-5 mr-2" />
-                Go Back
+                {t("Go Back")}
               </Button>
             </Link>
             <div className="space-y-3">
@@ -50,13 +50,13 @@ export default async function HeaderCategory({
 
               <div className="flex items-center gap-4 pt-2">
                 <Badge className="bg-[#3ABFF8]/10 text-[#3ABFF8] border border-[#3ABFF8]/20">
-                  {productLength} Products Available
+                  {productLength} {t("Products Available")}
                 </Badge>
                 <Badge className="bg-green-100 text-green-800 border border-green-200">
-                  ✓ Quality Assured
+                  ✓ {t("Quality Assured")}
                 </Badge>
                 <Badge className="bg-orange-100 text-orange-800 border border-orange-200">
-                  📦 Fast Delivery
+                  📦 {t("Fast Delivery")}
                 </Badge>
               </div>
             </div>

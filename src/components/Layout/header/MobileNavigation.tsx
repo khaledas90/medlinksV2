@@ -1,57 +1,57 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { DialogTitle } from "@/components/ui/dialog"
-import { Search, Phone, ChevronDown, Menu } from "lucide-react"
-import Link from "next/link"
-import Image from "next/image"
-import logo from "@/assets/logo.svg"
-import { VisuallyHidden } from "@radix-ui/react-visually-hidden"
-import { Category } from "@/actions/categories"
-import { Badge } from "@/components/ui/badge" 
-import { useParams } from "next/navigation"
-import { useTranslations } from "next-intl"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { DialogTitle } from "@/components/ui/dialog";
+import { Search, Phone, ChevronDown, Menu } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+import logo from "@/assets/logo.svg";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import { Category } from "@/actions/categories";
+import { Badge } from "@/components/ui/badge";
+import { useParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 interface NavigationItem {
-  title: string
-  items:  Category[]
+  title: string;
+  items: Category[];
 }
 
 interface MobileNavigationClientProps {
-  navigationItems: NavigationItem[]
-  
+  navigationItems: NavigationItem[];
 }
 
-export default function MobileNavigationClient({  navigationItems }: MobileNavigationClientProps) {
-  const [isOpen, setIsOpen] = useState(false)
-  const [isSearchOpen, setIsSearchOpen] = useState(false)
-  const [openMenuItems, setOpenMenuItems] = useState(new Set<string>())
+export default function MobileNavigationClient({
+  navigationItems,
+}: MobileNavigationClientProps) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [openMenuItems, setOpenMenuItems] = useState(new Set<string>());
   const { locale } = useParams();
-  const t =  useTranslations("common.header")
-    
-  
+  const t = useTranslations("common.header");
+
   const toggleMenuItem = (itemTitle: string) => {
-    setOpenMenuItems(prev => {
-      const newSet = new Set(prev)
+    setOpenMenuItems((prev) => {
+      const newSet = new Set(prev);
       if (newSet.has(itemTitle)) {
-        newSet.delete(itemTitle)
+        newSet.delete(itemTitle);
       } else {
-        newSet.add(itemTitle)
+        newSet.add(itemTitle);
       }
-      return newSet
-    })
-  }
+      return newSet;
+    });
+  };
 
   const handleSheetClose = () => {
-    setIsOpen(false)
-    setOpenMenuItems(new Set())
-  }
+    setIsOpen(false);
+    setOpenMenuItems(new Set());
+  };
 
   return (
-    <> 
+    <>
       <Button
         variant="ghost"
         size="sm"
@@ -68,13 +68,19 @@ export default function MobileNavigationClient({  navigationItems }: MobileNavig
             <Menu className="h-5 w-5" />
           </Button>
         </SheetTrigger>
-        <SheetContent side="right" className="w-[300px] overflow-auto sm:w-[400px]">
+        <SheetContent
+          side="right"
+          className="w-[300px] overflow-auto sm:w-[400px]"
+        >
           <VisuallyHidden>
             <DialogTitle>Navigation Menu</DialogTitle>
           </VisuallyHidden>
           <div className="flex flex-col h-full">
             <div className="flex items-center justify-center pb-4 border-b">
-              <Link href="/" className="flex items-center space-x-2 flex-shrink-0">
+              <Link
+                href="/"
+                className="flex items-center space-x-2 flex-shrink-0"
+              >
                 <Image src={logo} alt="Logo" width={120} height={35} />
               </Link>
             </div>
@@ -82,7 +88,9 @@ export default function MobileNavigationClient({  navigationItems }: MobileNavig
               <div className="relative">
                 <Input
                   type="text"
-                   placeholder={t("Search medical equipment, services, and products")}
+                  placeholder={t(
+                    "Search medical equipment, services, and products"
+                  )}
                   className="pl-4 pr-10 border-gray-300 focus:border-[#3ABFF8]"
                 />
                 <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
@@ -97,32 +105,37 @@ export default function MobileNavigationClient({  navigationItems }: MobileNavig
                     aria-expanded={openMenuItems.has(item.title)}
                     aria-controls={`menu-${item.title}`}
                   >
-                    <h3 className="font-medium text-gray-900 text-lg">{t(item.title)}</h3>
+                    <h3 className="font-medium text-gray-900 text-lg">
+                      {t(item.title)}
+                    </h3>
                     <ChevronDown
                       className={`h-4 w-4 text-gray-500 transition-transform duration-200 ${
-                        openMenuItems.has(item.title) ? 'rotate-180' : ''
+                        openMenuItems.has(item.title) ? "rotate-180" : ""
                       }`}
                     />
                   </button>
                   <div
                     id={`menu-${item.title}`}
                     className={`pl-4 space-y-1 transition-all duration-200 ${
-                      openMenuItems.has(item.title) ? 'block' : 'hidden'
+                      openMenuItems.has(item.title) ? "block" : "hidden"
                     }`}
                   >
                     {item.items.map((subItem) => (
                       <Link
-                       key={`${subItem.type}-${subItem.name}`}
-                        href={`category/${subItem.type}`}
+                        key={`${subItem.type}-${subItem.name}`}
+                        href={`/categories/${subItem.type}`}
                         className="block text-gray-600 hover:text-[#3ABFF8] transition-colors duration-200 py-2 px-2 rounded-md hover:bg-gray-50"
                         onClick={handleSheetClose}
                       >
-                       {locale == 'en' ? subItem.name : subItem.nameAr}
-                      {subItem.type === 1 &&(
-                         <Badge className="ml-2 text-[#3ABFF8]" variant="outline">
+                        {locale == "en" ? subItem.name : subItem.nameAr}
+                        {subItem.type === 3 && (
+                          <Badge
+                            className="ml-2 text-[#3ABFF8]"
+                            variant="outline"
+                          >
                             {t("Rent")}
                           </Badge>
-                      )}
+                        )}
                       </Link>
                     ))}
                   </div>
@@ -148,12 +161,18 @@ export default function MobileNavigationClient({  navigationItems }: MobileNavig
           </div>
         </SheetContent>
       </Sheet>
-      <div className={`${isSearchOpen ? "block" : "hidden"} absolute top-full left-0 right-0 bg-white border-b shadow-sm lg:hidden`}>
+      <div
+        className={`${
+          isSearchOpen ? "block" : "hidden"
+        } absolute top-full left-0 right-0 bg-white border-b shadow-sm lg:hidden`}
+      >
         <div className="container mx-auto px-4 pb-3">
           <div className="relative">
             <Input
               type="text"
-              placeholder={t("Search medical equipment, services, and products")}
+              placeholder={t(
+                "Search medical equipment, services, and products"
+              )}
               className="pl-4 pr-10 border-gray-300 focus:border-[#3ABFF8] focus:ring-[#3ABFF8]"
             />
             <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
@@ -161,5 +180,5 @@ export default function MobileNavigationClient({  navigationItems }: MobileNavig
         </div>
       </div>
     </>
-  )
+  );
 }

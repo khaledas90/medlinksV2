@@ -1,6 +1,3 @@
-import { Button } from "@/components/ui/button";
-import { ArrowLeft, Home } from "lucide-react";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import ImageSlider from "./_components/ImageSlider";
 import ProductInfo from "./_components/productInfo";
@@ -18,7 +15,6 @@ interface Props {
 export default async function ProductPage({ params }: Props) {
   const { id, locale } = await params;
   const product = await getProductById({ productId: Number(id) });
-  console.log(product);
 
   if (!product) {
     notFound();
@@ -47,21 +43,9 @@ export default async function ProductPage({ params }: Props) {
                 </div>
               </section>
             </div>
-
             <div className="lg:col-span-1">
               <div className="sticky top-4">
-                <OrderForm
-                  product={{
-                    id: product.id,
-                    name: product.name,
-                    price:
-                      product.discount > 0
-                        ? Math.round(
-                            product.price * (1 - product.discount / 100)
-                          )
-                        : product.price,
-                  }}
-                />
+                <OrderForm product={product} />
               </div>
             </div>
           </div>

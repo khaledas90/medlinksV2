@@ -433,6 +433,26 @@
         "cost3": "\u2022 Return shipping is non-refundable",
         "cost4": "\u2022 Shipping times may vary by location"
       }
+    },
+    "product": {
+      "Rent": "Rent",
+      "Buy": "Buy",
+      "Rentable": "Rentable",
+      "AED": "AED",
+      "month": "month",
+      "year": "year",
+      "Check for price": "Check for price",
+      "results": "results",
+      "of": "of",
+      "Showing": "Showing",
+      "to": "to",
+      "BuyNow": "Buy Now",
+      "Next": "Next",
+      "Previous": "Previous",
+      "Go Back": "Go Back",
+      "Fast Delivery": "Fast Delivery",
+      "Quality Assured": "Quality Assured",
+      "Products Available": "Products Available"
     }
   }
 }

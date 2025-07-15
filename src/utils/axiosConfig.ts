@@ -2,7 +2,7 @@ import axios, { AxiosError, AxiosRequestConfig } from "axios";
 import { deleteCookie, getCookie } from "cookies-next/client";
 import { toast } from "@/components/ui/use-toast";
 export const mainApi = axios.create({
-  baseURL: "https://www.oxfmoney.com/api",
+  baseURL: "http://92.113.146.242:8080/",
   withCredentials: true,
 });
 

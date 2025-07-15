@@ -20,7 +20,6 @@ export default async function CategoryProductsPage({ params }: Props) {
   const products = await getProducts({
     categoryId: categoryId,
   });
-  console.log(products);
 
   return (
     <div className="min-h-screen bg-gray-50">

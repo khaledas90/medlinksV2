@@ -16,6 +16,7 @@ import { NextIntlClientProvider } from "next-intl";
 import Header from "@/components/Layout/header/header";
 import Footer from "@/components/Layout/footer/footer";
 import { AnimatedWrapper } from "@/components/AnimatedWrapper";
+import StoreProvider from "@/store/StoreProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -66,12 +67,14 @@ export default async function RootLayout({
       >
         <body className="antialiased font-inter">
           <AnimatedWrapper>
-            <Providers>
-              <Header />
-              <Toaster richColors position="top-right" />
-              <SidebarProvider>{children}</SidebarProvider>
-              <Footer />
-            </Providers>
+            <StoreProvider>
+              <Providers>
+                <Header />
+                <Toaster richColors position="top-right" />
+                <SidebarProvider>{children}</SidebarProvider>
+                <Footer />
+              </Providers>
+            </StoreProvider>
           </AnimatedWrapper>
         </body>
       </html>

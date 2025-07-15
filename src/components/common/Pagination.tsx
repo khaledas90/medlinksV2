@@ -7,6 +7,7 @@ import {
   ChevronsLeft,
   ChevronsRight,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 interface PaginationData {
   numberOfElements: number;
@@ -22,6 +23,7 @@ interface PaginationProps {
 }
 
 export default function Pagination({ paginationData }: PaginationProps) {
+  const t = useTranslations("common.product");
   const {
     pageNumber: currentPage,
     totalPages,
@@ -85,10 +87,11 @@ export default function Pagination({ paginationData }: PaginationProps) {
       className={`flex flex-col lg:flex-row items-center justify-between gap-4`}
     >
       <div className="text-sm text-gray-600 order-2 lg:order-1">
-        Showing <span className="font-medium text-gray-900">{startItem}</span>{" "}
-        to <span className="font-medium text-gray-900">{endItem}</span> of{" "}
+        {t("Showing")}{" "}
+        <span className="font-medium text-gray-900">{startItem}</span> {t("to")}{" "}
+        <span className="font-medium text-gray-900">{endItem}</span> {t("of")}{" "}
         <span className="font-medium text-gray-900">{totalElements}</span>{" "}
-        results
+        {t("results")}
       </div>
 
       <div className="flex items-center gap-2 order-1 lg:order-2">
@@ -110,7 +113,7 @@ export default function Pagination({ paginationData }: PaginationProps) {
           className="border-gray-300 hover:bg-gray-50 disabled:opacity-50"
         >
           <ChevronLeft className="h-4 w-4" />
-          <span className="hidden sm:inline ml-1">Previous</span>
+          <span className="hidden sm:inline ml-1">{t("Previous")}</span>
         </Button>
 
         <div className="flex items-center gap-1">
@@ -151,7 +154,7 @@ export default function Pagination({ paginationData }: PaginationProps) {
           disabled={isLast}
           className="border-gray-300 hover:bg-gray-50 disabled:opacity-50"
         >
-          <span className="hidden sm:inline mr-1">Next</span>
+          <span className="hidden sm:inline mr-1">{t("Next")}</span>
           <ChevronRight className="h-4 w-4" />
         </Button>
 

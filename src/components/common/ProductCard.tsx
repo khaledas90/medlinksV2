@@ -12,6 +12,7 @@ import { ShoppingCart, Star } from "lucide-react";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import { Product } from "@/actions/product";
+import { useTranslations } from "next-intl";
 
 export default function ProductCard({
   product,
@@ -20,9 +21,11 @@ export default function ProductCard({
   product: Product;
   locale: string;
 }) {
+  const t = useTranslations("common.product");
   const calculateDiscountedPrice = (price: number, discount: number) => {
     return price - (price * discount) / 100;
   };
+
   return (
     <div className="ProductCard">
       <Card
@@ -41,8 +44,6 @@ export default function ProductCard({
               />
             </Link>
           </div>
-
-          {/* Badges */}
           <div className="absolute top-2 left-2 flex flex-col gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
             {product.discount > 0 && (
               <Badge className="bg-red-500 text-white animate-fade-in">
@@ -51,7 +52,7 @@ export default function ProductCard({
             )}
             {product.rent > 0 && (
               <Badge className="bg-blue-500 text-white animate-fade-in delay-150">
-                Rentable
+                {t("Rentable")}
               </Badge>
             )}
           </div>
@@ -76,30 +77,35 @@ export default function ProductCard({
           </div>
           <div className="space-y-1">
             <div className="flex items-center gap-2">
-              {product.discount > 0 ? (
+              {product.price === 0 ? (
+                <span className="text-base text-gray-600 italic">
+                  {t("Check for price")}
+                </span>
+              ) : product.discount > 0 ? (
                 <>
                   <span className="text-xl font-bold text-[#3ABFF8]">
-                    AED{" "}
+                    {t("AED")}{" "}
                     {calculateDiscountedPrice(
                       product.price,
                       product.discount
                     ).toFixed(0)}
                   </span>
                   <span className="text-sm text-gray-500 line-through">
-                    AED {product.price}
+                    {t("AED")} {product.price}
                   </span>
                 </>
               ) : (
                 <span className="text-xl font-bold text-[#3ABFF8]">
-                  AED {product.price}
+                  {t("AED")} {product.price}
                 </span>
               )}
             </div>
+
             {product.categoryTypeId === 3 && (
               <div className="text-sm text-gray-600">
-                Rent:{" "}
+                {t("Rent")}:{" "}
                 <span className="font-semibold text-green-600">
-                  AED {product.rent}/month
+                  {t("AED")} {product.rent}/{t("month")}
                 </span>
               </div>
             )}
@@ -115,7 +121,7 @@ export default function ProductCard({
                   className="flex-1 border-green-500 text-green-600 hover:bg-green-500 hover:text-white bg-transparent text-sm transition-all duration-300"
                 >
                   <ShoppingCart className="h-4 w-4 mr-1" />
-                  Rent
+                  {t("Rent")}
                 </Button>
               </Link>
             ) : (
@@ -125,7 +131,7 @@ export default function ProductCard({
                   className="flex-1 border-[#3ABFF8] text-[#3ABFF8] hover:bg-[#3ABFF8] hover:text-black bg-transparent text-sm transition-all duration-300"
                 >
                   <ShoppingCart className="h-4 w-4 mr-1" />
-                  Buy
+                  {t("Buy")}
                 </Button>
               </Link>
             )}

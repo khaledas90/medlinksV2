@@ -34,8 +34,6 @@ export default function ServicesCard({
     : null;
   if (!service) return null;
 
-  console.log(service);
-
   return (
     <div
       className={clsx(
