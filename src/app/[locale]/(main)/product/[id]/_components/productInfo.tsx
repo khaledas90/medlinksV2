@@ -76,7 +76,7 @@ export default function ProductInfo({ product }: { product: Product }) {
           <span className="text-4xl font-bold text-[#3ABFF8]">
             AED {discountedPrice.toLocaleString()}
           </span>
-          {hasDiscount && (
+          {hasDiscount ? (
             <>
               <span className="text-xl text-gray-500 line-through">
                 AED {product.price.toLocaleString()}
@@ -85,6 +85,8 @@ export default function ProductInfo({ product }: { product: Product }) {
                 -{product.discount}% OFF
               </Badge>
             </>
+          ) : (
+            ""
           )}
         </div>
         {savings > 0 && (
