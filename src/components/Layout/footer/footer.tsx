@@ -68,6 +68,7 @@ export default function Footer() {
             <div className="space-y-3">
               <Link
                 href="https://www.facebook.com/medlinks.uae/"
+                target="_blank"
                 className="flex items-center space-x-2"
               >
                 <Facebook className="h-4 w-4" />
@@ -75,6 +76,7 @@ export default function Footer() {
               </Link>
               <Link
                 href="https://www.instagram.com/medlinks_uae/"
+                target="_blank"
                 className="flex items-center space-x-2"
               >
                 <Instagram className="h-4 w-4" />
@@ -82,6 +84,7 @@ export default function Footer() {
               </Link>
               <Link
                 href="https://wa.link/0x42pa"
+                target="_blank"
                 className="flex items-center space-x-2"
               >
                 <MessageSquareMore className="h-4 w-4" />
@@ -89,6 +92,7 @@ export default function Footer() {
               </Link>
               <Link
                 href="https://twitter.com/MedLinks_2025"
+                target="_blank"
                 className="flex items-center space-x-2"
               >
                 <Twitter className="h-4 w-4" />

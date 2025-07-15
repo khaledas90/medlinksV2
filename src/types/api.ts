@@ -9,8 +9,22 @@ export interface ListMeta {
 }
 
 export interface QueryResponse<DataType> {
-  IsSuccess: boolean;
-  message: string;
-  data: DataType;
-  meta: ListMeta;
+  empty: boolean;
+  first: boolean;
+  last: boolean;
+  number: number;
+  numberOfElements: number;
+  size: number;
+  totalElements: number;
+  totalPages: number;
+  content: DataType;
+  sort: { sorted: boolean; empty: boolean; unsorted: boolean };
+  pageable: {
+    sort: { sorted: boolean; empty: boolean; unsorted: boolean };
+    offset: number;
+    pageSize: number;
+    pageNumber: number;
+    unpaged: boolean;
+    paged: boolean;
+  };
 }
