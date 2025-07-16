@@ -64,7 +64,10 @@ export default async function Header() {
           </nav>
 
           <div className="flex items-center space-x-2 lg:space-x-4">
-            <div className="hidden md:flex items-center space-x-2 text-sm">
+            <div
+              className="hidden md:flex items-center space-x-2 mx-3 text-sm"
+              dir="ltr"
+            >
               <Phone className="h-4 w-4 text-[#3ABFF8]" />
               <span className="text-gray-700 font-medium">+971522044556</span>
             </div>

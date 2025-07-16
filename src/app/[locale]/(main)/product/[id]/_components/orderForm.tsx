@@ -95,9 +95,8 @@ export default function OrderForm({ product }: OrderFormProps) {
       note: data.note || "",
       rent: product.categoryTypeId === 3,
       country: "UAE",
-      deliverDate: product.categoryTypeId === 3 ? data.date || null : null,
-      DeliveryDuty:
-        product.categoryTypeId === 3 ? data.duty_time || null : null,
+      deliverDate: null,
+      DeliveryDuty: null,
       items: [
         {
           quantity: data.quantity || 1,
@@ -216,7 +215,7 @@ export default function OrderForm({ product }: OrderFormProps) {
               </Select>
             </div>
 
-            {product.categoryTypeId === 3 && (
+            {/* {product.categoryTypeId === 3 && (
               <Input type="date" {...form.register("date")} />
             )}
 
@@ -233,7 +232,7 @@ export default function OrderForm({ product }: OrderFormProps) {
                   ))}
                 </SelectContent>
               </Select>
-            )}
+            )} */}
             <Textarea
               {...form.register("address")}
               placeholder="Delivery Address *"

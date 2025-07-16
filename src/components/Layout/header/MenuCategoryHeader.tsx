@@ -37,13 +37,14 @@ export default async function MenuCategoryHeader({
               <DropdownMenuItem
                 key={`${subItem.type}-${subItem.name}`}
                 asChild
+                className="cursor-pointer"
                 dir="auto"
               >
                 <Link
                   href={`/categories/${subItem.type} `}
                   className={`${
                     locale == "en" ? "text-left" : "text-right"
-                  } justify-between  w-full`}
+                  } justify-between   w-full`}
                 >
                   {locale == "en" ? subItem.name : subItem.nameAr}
                   {subItem.type === 3 && (

@@ -45,11 +45,11 @@ export default function Footer() {
             <div className="space-y-3">
               <div className="flex items-center space-x-2">
                 <Phone className="h-4 w-4" />
-                <span>{t("Phone1")}</span>
+                <span dir="ltr">{t("Phone1")}</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="h-4 w-4" />
-                <span>{t("Phone2")}</span>
+                <span dir="ltr">{t("Phone2")}</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="h-4 w-4" />
