@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -14,6 +14,7 @@ import { Category } from "@/actions/categories";
 import { Badge } from "@/components/ui/badge";
 import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
+import SearchInput from "./searsh/SearchInput";
 
 interface NavigationItem {
   title: string;
@@ -30,7 +31,10 @@ export default function MobileNavigationClient({
   const [isOpen, setIsOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [openMenuItems, setOpenMenuItems] = useState(new Set<string>());
+  const [inputValue, setInputValue] = useState("");
+  const inputRef = useRef<HTMLInputElement>(null);
   const { locale } = useParams();
+  const debounceTimer = useRef<NodeJS.Timeout | null>(null);
   const t = useTranslations("common.header");
 
   const toggleMenuItem = (itemTitle: string) => {
@@ -86,14 +90,49 @@ export default function MobileNavigationClient({
             </div>
             <div className="py-4 border-b">
               <div className="relative">
-                <Input
-                  type="text"
-                  placeholder={t(
-                    "Search medical equipment, services, and products"
-                  )}
-                  className="pl-4 pr-10 border-gray-300 focus:border-[#3ABFF8]"
-                />
-                <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    if (inputValue.trim()) {
+                      window.location.href = `/product?search=${encodeURIComponent(
+                        inputValue
+                      )}`;
+                    }
+                    const input = e.currentTarget.querySelector(
+                      "input"
+                    ) as HTMLInputElement;
+                    input?.blur();
+                  }}
+                >
+                  <Input
+                    ref={inputRef}
+                    type="text"
+                    placeholder={t(
+                      "Search medical equipment, services, and products"
+                    )}
+                    value={inputValue}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                      const value = e.target.value;
+                      setInputValue(value);
+                      if (debounceTimer.current) {
+                        clearTimeout(debounceTimer.current);
+                      }
+                      debounceTimer.current = setTimeout(() => {
+                        setInputValue(value);
+                      }, 200);
+                    }}
+                    autoComplete="off"
+                    spellCheck={false}
+                    className="pl-4 pr-10 border-gray-300 focus:border-[#3ABFF8]"
+                  />
+                  <button
+                    type="submit"
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-[#3ABFF8] transition-colors duration-200"
+                    aria-label="Search"
+                  >
+                    <Search className="h-4 w-4" />
+                  </button>
+                </form>
               </div>
             </div>
             <nav className="flex-1 py-4 space-y-4">
@@ -172,14 +211,7 @@ export default function MobileNavigationClient({
       >
         <div className="container mx-auto px-4 pb-3">
           <div className="relative">
-            <Input
-              type="text"
-              placeholder={t(
-                "Search medical equipment, services, and products"
-              )}
-              className="pl-4 pr-10 border-gray-300 focus:border-[#3ABFF8] focus:ring-[#3ABFF8]"
-            />
-            <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+            <SearchInput />
           </div>
         </div>
       </div>

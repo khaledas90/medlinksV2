@@ -1,6 +1,4 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Search, Phone } from "lucide-react";
+import { Phone } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "@/assets/logo.svg";
@@ -9,7 +7,7 @@ import MobileNavigationClient from "./MobileNavigation";
 import { getCategoriesTypes } from "@/actions/categories";
 import { getTranslations } from "next-intl/server";
 import MenuCategoryHeader from "./MenuCategoryHeader";
-import CommonSearch from "@/components/commonSearch";
+import SearchInput from "./searsh/SearchInput";
 
 export default async function Header() {
   const products = await getCategoriesTypes({ type: 1 });
@@ -42,7 +40,7 @@ export default async function Header() {
           </Link>
 
           <div className="hidden lg:flex flex-1 max-w-md mx-8">
-            <CommonSearch />
+            <SearchInput />
           </div>
 
           <nav className="hidden lg:flex items-center space-x-6">

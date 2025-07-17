@@ -2,7 +2,7 @@ import { Product } from "@/actions/product";
 import Image from "next/image";
 import Link from "next/link";
 import { useCallback } from "react";
-import { Badge } from "../ui/badge";
+import { Badge } from "../../../ui/badge";
 import { ArrowRight, Star } from "lucide-react";
 
 interface ProductCardProps {
