@@ -27,6 +27,7 @@ import { Product } from "@/actions/product";
 import { getCookie } from "cookies-next/client";
 import { useAddOrderMutation } from "@/store/api/global/order";
 import { toast } from "sonner";
+import { useTranslations } from "next-intl";
 
 interface OrderFormProps {
   product: Product;
@@ -68,6 +69,7 @@ const QUANTITIES = Array.from({ length: 10 }, (_, i) => ({
 export default function OrderForm({ product }: OrderFormProps) {
   const [addOrder, { isLoading, isSuccess }] = useAddOrderMutation();
   const [orderId, setOrderId] = useState("");
+  const t = useTranslations("common.product");
   const qrCode = getCookie("qr");
   const form = useForm({
     resolver: zodResolver(schema),
@@ -95,8 +97,8 @@ export default function OrderForm({ product }: OrderFormProps) {
       note: data.note || "",
       rent: product.categoryTypeId === 3,
       country: "UAE",
-      deliverDate: null,
-      DeliveryDuty: null,
+      deliverDate: data.date || "",
+      DeliveryDuty: data.duty_time || "",
       items: [
         {
           quantity: data.quantity || 1,
@@ -133,14 +135,15 @@ export default function OrderForm({ product }: OrderFormProps) {
             <CheckCircle className="h-8 w-8 text-white" />
           </div>
           <h3 className="text-xl font-bold text-green-900 mb-2">
-            Order Submitted Successfully!
+            {t("OrderSubmissionSuccess")}
           </h3>
           <p className="text-green-800 mb-4">
-            Thank you for your interest. We'll contact you within 24 hours to
-            confirm your order.
+            {t(
+              "Thank you for your interest We'll contact you within 24 hours to confirm your order"
+            )}
           </p>
           <Badge className="bg-green-600 text-white">
-            Order ID: #{orderId}
+            {t("Order ID")}: #{orderId}
           </Badge>
         </CardContent>
       </Card>
@@ -156,11 +159,11 @@ export default function OrderForm({ product }: OrderFormProps) {
           <Phone className="h-8 w-8 text-white" />
         </div>
         <CardTitle className="text-xl">
-          {product.categoryTypeId === 3 ? "Rent Now" : "Order Now"}
+          {product.categoryTypeId === 3 ? t("Rent Now") : t("Order Now")}
         </CardTitle>
         <CardDescription className="text-white/90">
-          Fill out the form below and we'll contact you to confirm your{" "}
-          {product.categoryTypeId === 3 ? "rental" : "order"}
+          {t("Fill out the form below and we'll contact you to confirm your")}{" "}
+          {product.categoryTypeId === 3 ? t("rental") : t("order")}
         </CardDescription>
       </CardHeader>
       <CardContent className="p-6">
@@ -170,27 +173,33 @@ export default function OrderForm({ product }: OrderFormProps) {
         >
           <div className="bg-white p-4 rounded-lg border border-orange-200">
             <h4 className="font-semibold text-gray-900 mb-2">
-              Product Details
+              {t("ProductDetails")}
             </h4>
             <p className="text-gray-700 text-sm mb-1">{product.name}</p>
             <div className="flex justify-between items-center">
               <p className="text-[#FF8C00] font-bold">
-                AED {currentPrice.toLocaleString()}{" "}
+                {t("AED")} {currentPrice.toLocaleString()}{" "}
                 {product.categoryTypeId === 3 ? "/day" : ""}
               </p>
               <p className="text-gray-600 text-sm">
-                Total: AED {totalPrice.toLocaleString()}
+                {t("Total: AED")} {totalPrice.toLocaleString()}
               </p>
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Input {...form.register("name")} placeholder="Full Name *" />
-            <Input {...form.register("phone")} placeholder="Mobile Number *" />
-            <Input {...form.register("email")} placeholder="Email Address" />
+            <Input {...form.register("name")} placeholder={t("FullName")} />
+            <Input
+              {...form.register("phone")}
+              placeholder={t("MobileNumber")}
+            />
+            <Input
+              {...form.register("email")}
+              placeholder={t("EmailAddress")}
+            />
             <Select onValueChange={(v) => form.setValue("city", v)}>
               <SelectTrigger className="w-full">
-                <SelectValue placeholder="Select City" />
+                <SelectValue placeholder={t("SelectCity")} />
               </SelectTrigger>
               <SelectContent>
                 {CITIES.map((c) => (
@@ -203,7 +212,7 @@ export default function OrderForm({ product }: OrderFormProps) {
             <div className="col-span-2">
               <Select onValueChange={(v) => form.setValue("quantity", v)}>
                 <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Select Quantity" />
+                  <SelectValue placeholder={t("SelectQuantity")} />
                 </SelectTrigger>
                 <SelectContent>
                   {QUANTITIES.map((q) => (
@@ -222,7 +231,7 @@ export default function OrderForm({ product }: OrderFormProps) {
             {product.categoryTypeId === 3 && (
               <Select onValueChange={(v) => form.setValue("duty_time", v)}>
                 <SelectTrigger>
-                  <SelectValue placeholder="Preferred Time" />
+                  <SelectValue placeholder={t("PreferredTime")} />
                 </SelectTrigger>
                 <SelectContent>
                   {DUTY_TIMES.map((d) => (
@@ -235,12 +244,12 @@ export default function OrderForm({ product }: OrderFormProps) {
             )}
             <Textarea
               {...form.register("address")}
-              placeholder="Delivery Address *"
+              placeholder={t("DeliveryAddress")}
               className="md:col-span-2"
             />
             <Textarea
               {...form.register("note")}
-              placeholder="Additional Notes"
+              placeholder={t("AdditionalNotes")}
               className="md:col-span-2"
             />
           </div>
@@ -250,7 +259,7 @@ export default function OrderForm({ product }: OrderFormProps) {
             disabled={isLoading}
             className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white py-3"
           >
-            {isLoading ? "Submitting..." : "Submit Request"}
+            {isLoading ? t("Submitting") : t("SubmitRequest")}
           </Button>
         </form>
       </CardContent>

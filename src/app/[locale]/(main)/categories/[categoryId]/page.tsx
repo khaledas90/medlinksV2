@@ -45,7 +45,16 @@ export default async function CategoryProductsPage({ params }: Props) {
           )}
         </div>
         <div className="mx-10 my-10">
-          <Pagination meta={products?.page!} />
+          <Pagination
+            paginationData={{
+              pageNumber: products?.pageable.pageNumber ?? 0,
+              pageSize: products?.pageable.pageSize ?? 0,
+              totalElements: products?.totalElements ?? 0,
+              totalPages: products?.totalPages ?? 0,
+              numberOfElements: products?.numberOfElements ?? 0,
+              size: products?.size ?? 0,
+            }}
+          />
         </div>
       </section>
     </div>

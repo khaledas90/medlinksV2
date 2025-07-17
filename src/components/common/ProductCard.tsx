@@ -30,14 +30,14 @@ export default function ProductCard({
     <div className="ProductCard">
       <Card
         key={product.id}
-        className="hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border-0 shadow-md group overflow-hidden rounded-xl"
+        className="hover:shadow-xl  hover:-translate-y-1 transition-all duration-300 border-0 shadow-md group overflow-hidden rounded-xl"
       >
         <div className="relative">
           <div className="aspect-[1.5/1] bg-gray-100 overflow-hidden">
             <Link href={`/product/${product.id}`}>
               <Image
                 src={`https://mymedlinks.com/${product.imagePath}`}
-                alt={locale == "en" ? product.name : product.nameAr}
+                alt={locale == "en" ? product.name : product.nameAr || ""}
                 width={300}
                 height={300}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"

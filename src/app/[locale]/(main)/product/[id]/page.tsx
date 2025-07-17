@@ -4,6 +4,7 @@ import ProductInfo from "./_components/productInfo";
 import OrderForm from "./_components/orderForm";
 import ProductDescription from "./_components/productDescription";
 import { getProductById } from "@/actions/product";
+import ExploreProducts from "./_components/exploreProducts";
 
 interface Props {
   params: Promise<{
@@ -49,6 +50,7 @@ export default async function ProductPage({ params }: Props) {
               </div>
             </div>
           </div>
+          <ExploreProducts CategoryId={product.categoryId} locale={locale} />
         </div>
       </section>
     </div>
