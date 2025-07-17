@@ -77,7 +77,29 @@
       "View Rentals": "عرض التأجير",
       "Flexible Terms": "الشروط التقديمية",
       "Explore Products": "استكشف المنتجات",
-      "Explore Rental Product": "استكشف المنتجات للإيجار"
+      "Explore Rental Product": "استكشف المنتجات للإيجار",
+      "whyChoose": {
+        "title": "لماذا تختار ميدلينكس؟",
+        "subtitle": "شريكك الموثوق في حلول الرعاية الصحية",
+        "features": {
+          "care": {
+            "title": "رعاية إنسانية",
+            "description": "نحن ملتزمون بتقديم خدمات طبية مهنية وحنونة"
+          },
+          "quality": {
+            "title": "جودة مضمونة",
+            "description": "جميع المعدات والخدمات تفي بأعلى المعايير الطبية"
+          },
+          "support": {
+            "title": "دعم 24/7",
+            "description": "دعم عملاء وخدمات طوارئ على مدار الساعة"
+          },
+          "team": {
+            "title": "فريق خبير",
+            "description": "أخصائيون وفنيون صحيون مؤهلون"
+          }
+        }
+      }
     },
     "about": {
       "legacy_compassion": "إرث من الرحمة، مستقبل من الرعاية",

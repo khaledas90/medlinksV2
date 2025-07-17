@@ -29,7 +29,33 @@ import {
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Terms & Conditions | MedLinks",
+  description:
+    "Please review the terms and conditions of using MedLinks services including rentals, consultations, and product purchases.",
+  keywords: [
+    "Terms and Conditions",
+    "MedLinks Usage Terms",
+    "Medical Rentals UAE",
+    "Healthcare Platform UAE",
+  ],
+  openGraph: {
+    title: "Terms & Conditions | MedLinks",
+    description:
+      "Understand the rules and guidelines that govern the use of MedLinks’ services.",
+    url: "https://mymedlinks.com/en/terms-and-conditions",
+    images: [
+      {
+        url: "https://mymedlinks.com/og/terms.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Terms & Conditions MedLinks",
+      },
+    ],
+  },
+};
 export default function TermsAndConditionsPage() {
   const t = useTranslations("common.termsAndConditions");
 

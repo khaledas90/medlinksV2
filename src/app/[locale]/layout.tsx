@@ -17,7 +17,10 @@ import Header from "@/components/Layout/header/header";
 import Footer from "@/components/Layout/footer/footer";
 import { AnimatedWrapper } from "@/components/AnimatedWrapper";
 import StoreProvider from "@/store/StoreProvider";
-
+interface Props {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -40,7 +43,74 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {};
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://mymedlinks.com";
+  const { locale } = await params;
+  const lang = locale.split("-")[0];
+
+  const description = lang.startsWith("en")
+    ? "MedLinks is your trusted platform for medical equipment, rental services, hospital appointments, and specialized medical solutions across the UAE. Quality care at your fingertips."
+    : "ميد لينكس هي منصتك الموثوقة للمعدات الطبية، وخدمات التأجير، وحجز مواعيد الأطباء والمستشفيات، وحلول طبية متخصصة في الإمارات. رعايتك تبدأ من هنا.";
+
+  const keywords = lang.startsWith("en")
+    ? "medical equipment, rental, hospital appointments, healthcare services, clinics, doctors, UAE, MedLinks, online medical, medical supplies"
+    : "معدات طبية، تأجير، مواعيد مستشفيات، خدمات صحية، عيادات، أطباء، الإمارات، ميد لينكس، طب، مستلزمات طبية، رعاية صحية";
+
+  return {
+    metadataBase: new URL(baseUrl || "http://localhost:3000"),
+    title: "MedLinks",
+    description,
+    keywords,
+    icons: {
+      icon: [
+        {
+          url: "https://ibb.co/hFJh6Hyc",
+          type: "image/x-icon",
+          sizes: "32x32",
+        },
+      ],
+    },
+    openGraph: {
+      title: "MedLinks - Medical Equipment & Health Services",
+      type: "website",
+      url: "https://mymedlinks.com",
+      images: [
+        {
+          url: "https://ibb.co/hFJh6Hyc",
+          width: 1200,
+          height: 630,
+          alt: "MedLinks UAE",
+        },
+      ],
+      description,
+      siteName: "MedLinks",
+    },
+    twitter: {
+      site: "@MedLinks_2025",
+      title: "MedLinks UAE",
+      description,
+      creator: "@MedLinks_2025",
+      images: [
+        {
+          url: "https://ibb.co/hFJh6Hyc",
+          width: 1200,
+          height: 630,
+          alt: "MedLinks",
+        },
+      ],
+    },
+    other: {
+      author: "MedLinks UAE",
+      "facebook-domain-verification": "vrgxc7hnw55utj3an9quypmaj4eyrs",
+      "msvalidate.01": "597692DEE268A15546C4E0F78EEBD51D",
+      "csrf-token": "your-token-here",
+      "app-url": "https://mymedlinks.com",
+      "itemprop:name": "MedLinks",
+      "itemprop:description": description,
+      "itemprop:image": "https://ibb.co/hFJh6Hyc",
+    },
+  };
+}
 
 export async function generateStaticParams() {
   const locales = ["en", "ar"];

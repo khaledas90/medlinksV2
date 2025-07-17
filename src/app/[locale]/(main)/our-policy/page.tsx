@@ -24,7 +24,33 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Our Privacy Policy | MedLinks",
+  description:
+    "MedLinks is committed to protecting your privacy. Learn how we handle your personal data and ensure compliance with international standards.",
+  keywords: [
+    "Privacy Policy",
+    "Data Security",
+    "MedLinks Policy",
+    "UAE Healthcare Privacy",
+  ],
+  openGraph: {
+    title: "Privacy Policy | MedLinks",
+    description:
+      "Read about how MedLinks handles and protects your personal information.",
+    url: "https://mymedlinks.com/en/our-policy",
+    images: [
+      {
+        url: "https://mymedlinks.com/og/policy.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Privacy Policy MedLinks",
+      },
+    ],
+  },
+};
 export default function PolicyPage() {
   const t = useTranslations("common.policy");
 
@@ -167,7 +193,7 @@ export default function PolicyPage() {
             </CardHeader>
             <CardContent>
               <Accordion type="single" collapsible className="w-full">
-                <AccordionItem value="information-collection"  >
+                <AccordionItem value="information-collection">
                   <AccordionTrigger className="text-left no-underline cursor-pointer">
                     {t("detailedPolicies.informationCollection.title")}
                   </AccordionTrigger>

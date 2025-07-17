@@ -7,7 +7,7 @@ import ProductCard from "@/components/common/ProductCard";
 import NotFound from "@/components/NotFound";
 import HeaderCategory from "./_components/HeaderCategory";
 import Pagination from "@/components/common/Pagination";
-import FillterProducts from "./_components/FillterProducts";
+// import FillterProducts from "./_components/FillterProducts";
 interface Props {
   params: Promise<{
     categoryId: string;
@@ -20,7 +20,6 @@ export default async function CategoryProductsPage({ params }: Props) {
   const products = await getProducts({
     categoryId: categoryId,
   });
-
   return (
     <div className="min-h-screen bg-gray-50">
       <HeaderCategory
@@ -28,7 +27,7 @@ export default async function CategoryProductsPage({ params }: Props) {
         categoryId={Number(categoryId)}
         locale={locale}
       />
-      <FillterProducts />
+      {/* <FillterProducts /> */}
       <section className="py-12">
         <div className="container mx-auto px-4">
           {products?.content.length === 0 ? (
@@ -46,16 +45,7 @@ export default async function CategoryProductsPage({ params }: Props) {
           )}
         </div>
         <div className="mx-10 my-10">
-          <Pagination
-            paginationData={{
-              pageNumber: products?.pageable.pageNumber ?? 0,
-              pageSize: products?.pageable.pageSize ?? 0,
-              totalElements: products?.totalElements ?? 0,
-              totalPages: products?.totalPages ?? 0,
-              numberOfElements: products?.numberOfElements ?? 0,
-              size: products?.size ?? 0,
-            }}
-          />
+          <Pagination meta={products?.page!} />
         </div>
       </section>
     </div>

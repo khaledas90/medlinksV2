@@ -31,6 +31,33 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Return Policy | MedLinks",
+  description:
+    "Review MedLinks' return and refund policy for all purchases and rentals. Customer satisfaction is our priority.",
+  keywords: [
+    "Return Policy",
+    "Refund Policy",
+    "Medical Equipment Return",
+    "MedLinks Policy",
+  ],
+  openGraph: {
+    title: "Return & Refund Policy | MedLinks",
+    description:
+      "All you need to know about returning medical equipment or canceling bookings at MedLinks.",
+    url: "https://mymedlinks.com/en/return-policy",
+    images: [
+      {
+        url: "https://mymedlinks.com/og/return.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Return Policy MedLinks",
+      },
+    ],
+  },
+};
 export default function ReturnPolicyPage() {
   const t = useTranslations("common.termsAndConditions");
   const c = useTranslations("common.returnPolicy");

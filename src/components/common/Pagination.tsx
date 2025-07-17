@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { ListMeta } from "@/types/api";
 import {
   ChevronLeft,
   ChevronRight,
@@ -9,39 +10,34 @@ import {
 } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-interface PaginationData {
-  numberOfElements: number;
-  pageNumber: number;
-  pageSize: number;
-  size: number;
-  totalElements: number;
-  totalPages: number;
-}
-
 interface PaginationProps {
-  paginationData: PaginationData;
+  meta: ListMeta;
+  page?: number;
+  setPage?: (page: number) => void;
 }
 
-export default function Pagination({ paginationData }: PaginationProps) {
+export default function Pagination({
+  meta,
+  page = 1,
+  setPage,
+}: PaginationProps) {
   const t = useTranslations("common.product");
-  const {
-    pageNumber: currentPage,
-    totalPages,
-    totalElements,
-    pageSize,
-  } = paginationData;
+
+  if (!meta || !meta.totalPages || meta.totalElements === 0) {
+    return null;
+  }
 
   const getPageNumbers = () => {
     const pages = [];
     const maxVisiblePages = 5;
 
-    if (totalPages <= maxVisiblePages) {
-      for (let i = 0; i < totalPages; i++) {
+    if (meta.totalPages <= maxVisiblePages) {
+      for (let i = 0; i < meta.totalPages; i++) {
         pages.push(i);
       }
     } else {
-      const startPage = Math.max(0, currentPage - 2);
-      const endPage = Math.min(totalPages - 1, currentPage + 2);
+      const startPage = Math.max(0, page - 2);
+      const endPage = Math.min(meta.totalPages - 1, page + 2);
 
       if (startPage > 0) {
         pages.push(0);
@@ -54,11 +50,11 @@ export default function Pagination({ paginationData }: PaginationProps) {
         pages.push(i);
       }
 
-      if (endPage < totalPages - 1) {
-        if (endPage < totalPages - 2) {
+      if (endPage < meta.totalPages - 1) {
+        if (endPage < meta.totalPages - 2) {
           pages.push(-1);
         }
-        pages.push(totalPages - 1);
+        pages.push(meta.totalPages - 1);
       }
     }
 
@@ -66,20 +62,21 @@ export default function Pagination({ paginationData }: PaginationProps) {
   };
 
   const pageNumbers = getPageNumbers();
-  const startItem = currentPage * pageSize + 1;
-  const endItem = Math.min((currentPage + 1) * pageSize, totalElements);
+  const startItem = page * meta.size + 1;
+  const endItem = Math.min((page + 1) * meta.size, meta.totalElements);
 
-  const isFirst = currentPage === 0;
-  const isLast = currentPage === totalPages - 1;
+  const isFirst = page === 0;
+  const isLast = page === meta.totalPages - 1;
 
-  if (totalElements === 0) {
-    return null;
-  }
-
-  const onPageChange = (page: number) => {
-    if (page < 0 || page >= totalPages) {
+  const handlePageChange = (currentPage: number) => {
+    if (
+      currentPage < 0 ||
+      currentPage >= meta.totalPages ||
+      currentPage === page
+    ) {
       return;
     }
+    // setPage?.(currentPage);
   };
 
   return (
@@ -90,7 +87,7 @@ export default function Pagination({ paginationData }: PaginationProps) {
         {t("Showing")}{" "}
         <span className="font-medium text-gray-900">{startItem}</span> {t("to")}{" "}
         <span className="font-medium text-gray-900">{endItem}</span> {t("of")}{" "}
-        <span className="font-medium text-gray-900">{totalElements}</span>{" "}
+        <span className="font-medium text-gray-900">{meta.totalElements}</span>{" "}
         {t("results")}
       </div>
 
@@ -98,7 +95,7 @@ export default function Pagination({ paginationData }: PaginationProps) {
         <Button
           variant="outline"
           size="sm"
-          onClick={() => onPageChange(0)}
+          onClick={() => handlePageChange(0)}
           disabled={isFirst}
           className="hidden sm:flex border-gray-300 hover:bg-gray-50 disabled:opacity-50"
         >
@@ -108,7 +105,7 @@ export default function Pagination({ paginationData }: PaginationProps) {
         <Button
           variant="outline"
           size="sm"
-          onClick={() => onPageChange(currentPage - 1)}
+          onClick={() => handlePageChange(page - 1)}
           disabled={isFirst}
           className="border-gray-300 hover:bg-gray-50 disabled:opacity-50"
         >
@@ -132,11 +129,11 @@ export default function Pagination({ paginationData }: PaginationProps) {
             return (
               <Button
                 key={pageNum}
-                variant={pageNum === currentPage ? "default" : "outline"}
+                variant={pageNum === page ? "default" : "outline"}
                 size="sm"
-                onClick={() => onPageChange(pageNum)}
+                onClick={() => handlePageChange(pageNum)}
                 className={
-                  pageNum === currentPage
+                  pageNum === page
                     ? "bg-[#3ABFF8] hover:bg-[#2DA5D8] text-white border-[#3ABFF8]"
                     : "border-gray-300 hover:bg-gray-50"
                 }
@@ -150,7 +147,7 @@ export default function Pagination({ paginationData }: PaginationProps) {
         <Button
           variant="outline"
           size="sm"
-          onClick={() => onPageChange(currentPage + 1)}
+          onClick={() => handlePageChange(page + 1)}
           disabled={isLast}
           className="border-gray-300 hover:bg-gray-50 disabled:opacity-50"
         >
@@ -161,7 +158,7 @@ export default function Pagination({ paginationData }: PaginationProps) {
         <Button
           variant="outline"
           size="sm"
-          onClick={() => onPageChange(totalPages - 1)}
+          onClick={() => handlePageChange(meta.totalPages - 1)}
           disabled={isLast}
           className="hidden sm:flex border-gray-300 hover:bg-gray-50 disabled:opacity-50"
         >
