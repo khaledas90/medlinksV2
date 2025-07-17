@@ -215,7 +215,7 @@ export default function OrderForm({ product }: OrderFormProps) {
               </Select>
             </div>
 
-            {/* {product.categoryTypeId === 3 && (
+            {product.categoryTypeId === 3 && (
               <Input type="date" {...form.register("date")} />
             )}
 
@@ -232,7 +232,7 @@ export default function OrderForm({ product }: OrderFormProps) {
                   ))}
                 </SelectContent>
               </Select>
-            )} */}
+            )}
             <Textarea
               {...form.register("address")}
               placeholder="Delivery Address *"

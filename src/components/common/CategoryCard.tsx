@@ -50,29 +50,16 @@ export default async function CategoryCard({
             <p className="text-sm text-gray-600 mb-3 line-clamp-2">
               {locale == "en" ? category.description : category.descriptionAr}
             </p>
-            <div className="flex items-center justify-between mb-3">
-              <div className="flex items-center">
-                {[...Array(5)].map((_, i) => (
-                  <span
-                    key={i}
-                    className={`text-sm ${
-                      i < 4 ? "text-yellow-400" : "text-gray-300"
-                    }`}
-                  >
-                    ★
-                  </span>
-                ))}
-              </div>
-            </div>
+
             <Link href={`/categories/${category.id}`}>
               <Button
                 className="w-full bg-orange-500 hover:bg-orange-600 text-white"
                 disabled={!category.active}
               >
                 {category.type === 1
-                  ? t("Buy Now")
+                  ? t("Explore Products")
                   : category.type === 3
-                  ? t("Rent Now")
+                  ? t("Explore Rental Product")
                   : t("Contact for Price")}
               </Button>
             </Link>

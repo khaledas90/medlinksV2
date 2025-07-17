@@ -123,7 +123,11 @@ export default function MobileNavigationClient({
                     {item.items.map((subItem) => (
                       <Link
                         key={`${subItem.type}-${subItem.name}`}
-                        href={`/categories/${subItem.type}`}
+                        href={
+                          subItem.type === 2
+                            ? `/product/${subItem.id}`
+                            : `/categories/${subItem.id}`
+                        }
                         className="block text-gray-600 hover:text-[#3ABFF8] transition-colors duration-200 py-2 px-2 rounded-md hover:bg-gray-50"
                         onClick={handleSheetClose}
                       >

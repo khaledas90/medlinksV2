@@ -9,6 +9,7 @@ import MobileNavigationClient from "./MobileNavigation";
 import { getCategoriesTypes } from "@/actions/categories";
 import { getTranslations } from "next-intl/server";
 import MenuCategoryHeader from "./MenuCategoryHeader";
+import CommonSearch from "@/components/commonSearch";
 
 export default async function Header() {
   const products = await getCategoriesTypes({ type: 1 });
@@ -23,10 +24,10 @@ export default async function Header() {
       title: "Rent",
       items: rent,
     },
-    {
-      title: "Services",
-      items: services,
-    },
+    // {
+    //   title: "Services",
+    //   items: services,
+    // },
     {
       title: "Products",
       items: products,
@@ -41,16 +42,7 @@ export default async function Header() {
           </Link>
 
           <div className="hidden lg:flex flex-1 max-w-md mx-8">
-            <div className="relative w-full">
-              <Input
-                type="text"
-                placeholder={t(
-                  "Search medical equipment, services, and products"
-                )}
-                className="pl-4 pr-10 border-gray-300 focus:border-[#3ABFF8] focus:ring-[#3ABFF8]"
-              />
-              <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-            </div>
+            <CommonSearch />
           </div>
 
           <nav className="hidden lg:flex items-center space-x-6">

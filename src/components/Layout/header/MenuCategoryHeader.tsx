@@ -41,7 +41,11 @@ export default async function MenuCategoryHeader({
                 dir="auto"
               >
                 <Link
-                  href={`/categories/${subItem.type} `}
+                  href={
+                    subItem.type === 2
+                      ? `/product/${subItem.id} `
+                      : `/categories/${subItem.id} `
+                  }
                   className={`${
                     locale == "en" ? "text-left" : "text-right"
                   } justify-between   w-full`}

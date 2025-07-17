@@ -53,7 +53,7 @@ export default function ProductInfo({ product }: { product: Product }) {
 
       <div className="flex items-center gap-4">
         <div className="flex items-center gap-1">
-          {[...Array(5)].map((_, i) => (
+          {/* {[...Array(5)].map((_, i) => (
             <Star
               key={i}
               className={`h-5 w-5 ${
@@ -62,7 +62,16 @@ export default function ProductInfo({ product }: { product: Product }) {
                   : "text-gray-300"
               }`}
             />
-          ))}
+          ))} */}
+          <div className="flex items-center gap-1">
+            {[...Array(5)].map((_, i) => (
+              <Star
+                key={i}
+                className="w-4 h-4 fill-yellow-400 text-yellow-400"
+              />
+            ))}
+            <span className="text-sm text-gray-500 ml-2">(5.0)</span>
+          </div>
         </div>
         <span className="text-lg font-medium text-gray-900">
           {product.rating}
